@@ -1,0 +1,382 @@
+@mixin coordinate_information($width, $top, $left) {
+    width: $width;
+    top: $top;
+    left: $left;
+}
+
+position {
+    position: absolute;
+}
+
+opacity_zero { 
+    opacity: 1;    
+}
+
+shop {
+    display:none;
+}
+
+// 商店
+#shop {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(5.6vw, 0.6vh, 61.5vw);
+}
+
+#shop_stall {        
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(87vw, 20vh, 7vw);
+}
+
+#shop_closeButton {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(8.5vw, 18vh, 79vw)
+}
+
+#shop_logo {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(30vw, 16vh, 35vw);
+}
+
+#shop_menu {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(39vw, 28vh, 38vw);
+    cursor: pointer;
+}
+
+#shop_menu_item {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(4.5vw, 31.5vh, 40.5vw);
+    cursor: pointer;   
+}
+
+#shop_menu_scene {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(4.5vw, 31.5vh, 50.5vw);    
+    cursor: pointer;
+}
+
+#shop_menu_special {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(4.3vw, 31.5vh, 60.4vw);    
+    cursor: pointer;
+}
+
+#shop_menu_reward {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(4.5vw, 31.5vh, 70vw);    
+    cursor: pointer;
+}
+
+#dinosaur_model {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(65vw, 71vh, 23vw); 
+    z-index: 2;
+}
+
+#item_01 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(19vw, 38.5vh, 21vw);
+}
+
+#item_02 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(19vw, 38.5vh, 41vw);
+}
+
+#item_03 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(19vw, 38.5vh, 61vw);
+}
+
+#item_04 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(19vw, 49.5vh, 21vw);
+}
+
+#item_05 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(19vw, 49.5vh, 41vw);
+}
+
+#item_06 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(19vw, 49.5vh, 61vw);
+}
+
+#item_07 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(19vw, 60.4vh, 21vw);
+}
+
+#item_08 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(19vw, 60.4vh, 41vw);
+}
+
+#item_09 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(19vw, 60.4vh, 61vw);
+}
+
+#hat_01 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(15vw, 41vh, 23vw);
+    cursor: pointer;
+}
+
+#hat_02 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(15vw, 41vh, 43vw);
+    cursor: pointer;
+}
+
+#hat_03 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(15vw, 40vh, 63vw);
+    cursor: pointer;
+}
+
+#hat_04 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(14.5vw, 51.5vh, 23.2vw);
+    cursor: pointer;
+}
+
+#price_01 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(13vw, 46vh, 24vw);
+    cursor: pointer;
+}
+
+#price_02 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(13vw, 46vh, 44vw);
+    cursor: pointer;
+}
+
+#price_03 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(13vw, 46vh, 64vw);
+    cursor: pointer;
+}
+
+#price_04 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(13vw, 57vh, 24vw);
+    cursor: pointer;
+}
+
+#hat_model_01 {    
+    @extend position;
+    @extend opacity_zero;    
+    @include coordinate_information(30vw, 69vh, 30vw);
+    z-index: 3;
+    display: none;
+}
+
+#hat_model_02 {    
+    @extend position;
+    @extend opacity_zero;    
+    @include coordinate_information(30vw, 69vh, 25vw);
+    z-index: 3;
+    display: none;
+}
+
+#hat_model_03 {    
+    @extend position;
+    @extend opacity_zero;    
+    @include coordinate_information(27vw, 67.7vh, 29vw);
+    z-index: 3;
+    display: none;
+}
+
+#hat_model_04 {    
+    @extend position;
+    @extend opacity_zero;    
+    @include coordinate_information(30vw, 71vh, 25vw);
+    z-index: 3;
+    display: none;
+}
+
+#hat_model_04_02 {    
+    @extend position;
+    @extend opacity_zero;    
+    @include coordinate_information(15vw, 72.8vh, 27vw);
+    z-index: 1;
+    display: none;  
+}
+
+#purchase_button {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(15vw, 57vh, 43vw);
+    cursor: pointer;
+    z-index: 1; //remember to delete this
+    display: none;
+}
+
+#close_button {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(6.5vw, 37.5vh, 73vw);
+    cursor: pointer;
+    z-index: 1;
+    display: none;
+}
+
+#purchase_page_01 {
+    @extend position;
+    @extend opacity_zero;    
+    @include coordinate_information(60vw, 37vh, 20vw);    
+    display: none;
+}
+
+#purchase_page_02 {
+    @extend position;
+    @extend opacity_zero;    
+    @include coordinate_information(60vw, 37vh, 20vw);    
+    display: none;
+}
+
+#purchase_page_03 {
+    @extend position;
+    @extend opacity_zero;    
+    @include coordinate_information(60vw, 37vh, 20vw);    
+    display: none;
+}
+
+#purchase_page_04 {
+    @extend position;
+    @extend opacity_zero;    
+    @include coordinate_information(60vw, 37vh, 20vw);    
+    display: none;
+}
+
+// 揹包
+backpack {
+    display: none;
+}
+
+#backpack {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(5vw, 0.45vh, 69.2vw);
+}
+
+#big_backpack {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(91vw, 30vh, 4.5vw)   
+}
+
+#backpack_closeButton {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(8.5vw, 34.3vh, 75.5vw)
+}
+
+#dinosaur_backpack {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(65vw, 68vh, 23vw); 
+    z-index: 2;
+}
+
+#backpack_01 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(17vw, 49vh, 13vw);
+    cursor: pointer;
+}
+
+#backpack_02 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(17vw, 49vh, 32vw);
+    cursor: pointer;
+}
+
+#backpack_03 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(17vw, 49vh, 51vw);
+    cursor: pointer;
+}
+
+#backpack_04 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(17vw, 49vh, 70vw);
+    cursor: pointer;
+}
+
+#backpack_05 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(17vw, 57.5vh, 13vw);
+    cursor: pointer;
+}
+
+#backpack_06 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(17vw, 57.5vh, 32vw);
+    cursor: pointer;
+}
+
+#backpack_07 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(17vw, 57.5vh, 51vw);
+    cursor: pointer;
+}
+
+#backpack_08 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(17vw, 57.5vh, 70vw);
+    cursor: pointer;
+}
+
+#bp_01 {    
+    @extend position;
+    @extend opacity_zero;    
+    @include coordinate_information(31vw, 68vh, 25vw);
+    z-index: 3;
+    display: none;
+}
+
+#bp_01_02 {    
+    @extend position;
+    @extend opacity_zero;    
+    @include coordinate_information(16vw, 69.7vh, 27.1vw);
+    z-index: 1;
+    display: none;  
+}

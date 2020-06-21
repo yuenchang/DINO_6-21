@@ -1,0 +1,259 @@
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-moz-keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-ms-keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-webkit-keyframes fadeout {
+  from {
+    opacity: 1; }
+  to {
+    display: none;
+    opacity: 0; } }
+
+@-moz-keyframes fadeout {
+  from {
+    opacity: 1; }
+  to {
+    display: none;
+    opacity: 0; } }
+
+@-ms-keyframes fadeout {
+  from {
+    opacity: 1; }
+  to {
+    display: none;
+    opacity: 0; } }
+
+@keyframes fadeout {
+  from {
+    opacity: 1; }
+  to {
+    display: none;
+    opacity: 0; } }
+
+@-webkit-keyframes LOGO--floatup {
+  to {
+    top: 11vh; } }
+
+@-moz-keyframes LOGO--floatup {
+  to {
+    top: 11vh; } }
+
+@-ms-keyframes LOGO--floatup {
+  to {
+    top: 11vh; } }
+
+@keyframes LOGO--floatup {
+  to {
+    top: 11vh; } }
+
+@-webkit-keyframes LOGO_back--floatup {
+  to {
+    top: 11vh; } }
+
+@-moz-keyframes LOGO_back--floatup {
+  to {
+    top: 11vh; } }
+
+@-ms-keyframes LOGO_back--floatup {
+  to {
+    top: 11vh; } }
+
+@keyframes LOGO_back--floatup {
+  to {
+    top: 11vh; } }
+
+@-webkit-keyframes Pterodactyl--floatup {
+  to {
+    top: 11vh; } }
+
+@-moz-keyframes Pterodactyl--floatup {
+  to {
+    top: 11vh; } }
+
+@-ms-keyframes Pterodactyl--floatup {
+  to {
+    top: 11vh; } }
+
+@keyframes Pterodactyl--floatup {
+  to {
+    top: 11vh; } }
+
+@-webkit-keyframes leaf_R1-1--floatup {
+  to {
+    top: 8.9vh; } }
+
+@-moz-keyframes leaf_R1-1--floatup {
+  to {
+    top: 8.9vh; } }
+
+@-ms-keyframes leaf_R1-1--floatup {
+  to {
+    top: 8.9vh; } }
+
+@keyframes leaf_R1-1--floatup {
+  to {
+    top: 8.9vh; } }
+
+@-webkit-keyframes leaf_R2-2--floatup {
+  to {
+    top: 14.2vh; } }
+
+@-moz-keyframes leaf_R2-2--floatup {
+  to {
+    top: 14.2vh; } }
+
+@-ms-keyframes leaf_R2-2--floatup {
+  to {
+    top: 14.2vh; } }
+
+@keyframes leaf_R2-2--floatup {
+  to {
+    top: 14.2vh; } }
+
+@-webkit-keyframes bigleaf_back--floatup {
+  to {
+    top: 5.5vh; } }
+
+@-moz-keyframes bigleaf_back--floatup {
+  to {
+    top: 5.5vh; } }
+
+@-ms-keyframes bigleaf_back--floatup {
+  to {
+    top: 5.5vh; } }
+
+@keyframes bigleaf_back--floatup {
+  to {
+    top: 5.5vh; } }
+
+@-webkit-keyframes bigleaf_front--floatup {
+  to {
+    top: 3.5vh; } }
+
+@-moz-keyframes bigleaf_front--floatup {
+  to {
+    top: 3.5vh; } }
+
+@-ms-keyframes bigleaf_front--floatup {
+  to {
+    top: 3.5vh; } }
+
+@keyframes bigleaf_front--floatup {
+  to {
+    top: 3.5vh; } }
+
+@-webkit-keyframes egg--floatup {
+  to {
+    top: 6vh; } }
+
+@-moz-keyframes egg--floatup {
+  to {
+    top: 6vh; } }
+
+@-ms-keyframes egg--floatup {
+  to {
+    top: 6vh; } }
+
+@keyframes egg--floatup {
+  to {
+    top: 6vh; } }
+
+.fadeout {
+  -webkit-animation: fadeout;
+  -moz-animation: fadeout;
+  -o-animation: fadeout;
+  animation: fadeout;
+  animation-duration: 1s;
+  animation-fill-mode: forwards; }
+
+.fadein {
+  -webkit-animation: fadein;
+  -moz-animation: fadein;
+  -o-animation: fadein;
+  animation: fadein;
+  animation-duration: 1s;
+  animation-fill-mode: forwards; }
+
+.LOGO--floatup {
+  -webkit-animation: LOGO--floatup;
+  -moz-animation: LOGO--floatup;
+  -o-animation: LOGO--floatup;
+  animation: LOGO--floatup;
+  animation-duration: 1s;
+  animation-fill-mode: forwards; }
+
+.LOGO_back--floatup {
+  -webkit-animation: LOGO_back--floatup;
+  -moz-animation: LOGO_back--floatup;
+  -o-animation: LOGO_back--floatup;
+  animation: LOGO_back--floatup;
+  animation-duration: 1s;
+  animation-fill-mode: forwards; }
+
+.Pterodactyl--floatup {
+  -webkit-animation: Pterodactyl--floatup;
+  -moz-animation: Pterodactyl--floatup;
+  -o-animation: Pterodactyl--floatup;
+  animation: Pterodactyl--floatup;
+  animation-duration: 1s;
+  animation-fill-mode: forwards; }
+
+.leaf_R1-1--floatup {
+  -webkit-animation: leaf_R1-1--floatup;
+  -moz-animation: leaf_R1-1--floatup;
+  -o-animation: leaf_R1-1--floatup;
+  animation: leaf_R1-1--floatup;
+  animation-duration: 1s;
+  animation-fill-mode: forwards; }
+
+.leaf_R2-2--floatup {
+  -webkit-animation: leaf_R2-2--floatup;
+  -moz-animation: leaf_R2-2--floatup;
+  -o-animation: leaf_R2-2--floatup;
+  animation: leaf_R2-2--floatup;
+  animation-duration: 1s;
+  animation-fill-mode: forwards; }
+
+.bigleaf_back--floatup {
+  -webkit-animation: bigleaf_back--floatup;
+  -moz-animation: bigleaf_back--floatup;
+  -o-animation: bigleaf_back--floatup;
+  animation: bigleaf_back--floatup;
+  animation-duration: 1s;
+  animation-fill-mode: forwards; }
+
+.bigleaf_front--floatup {
+  -webkit-animation: bigleaf_front--floatup;
+  -moz-animation: bigleaf_front--floatup;
+  -o-animation: bigleaf_front--floatup;
+  animation: bigleaf_front--floatup;
+  animation-duration: 1s;
+  animation-fill-mode: forwards; }
+
+.egg--floatup {
+  -webkit-animation: egg--floatup;
+  -moz-animation: egg--floatup;
+  -o-animation: egg--floatup;
+  animation: egg--floatup;
+  animation-duration: 1s;
+  animation-fill-mode: forwards; }

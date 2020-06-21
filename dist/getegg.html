@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LOG IN</title>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="user-scalable=no">
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js">   </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+    <script src="./js/getegg.js"></script>
+    <script src="./js/jQueryRotate.js"></script>
+    <link href="./css/all.css" rel="stylesheet">
+    <link href="./css/fonts.css" rel="stylesheet">
+    <link href="./css/story.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js">
+  </head>
+  <body>
+    <!-- Left top--><img class="image bg_L1" src="./res/singin/bg_L1.svg"><img class="image bg_L2" src="./res/singin/bg_L2.svg"><img class="image bg_L3" src="./res/singin/bg_L3.svg"><img class="image bg_L4" src="./res/singin/bg_L4.svg">
+    <!-- Right top    --><img class="image bg_R1" src="./res/singin/bg_R1.svg"><img class="image bg_R2" src="./res/singin/bg_R2.svg"><img class="image bg_R3" src="./res/singin/bg_R3.svg"><img class="image bg_4" src="./res/singin/bg_4.svg">
+    <!-- Middle-->
+    <div class="listen">
+      <div class="text">張開耳朵聽故事</div>
+    </div>
+    <div class="help">
+      <div class="text">幫忙恐龍媽媽生蛋</div>
+    </div>
+    <div class="thank">
+      <div class="text">謝謝你願意幫忙</div>
+      <div class="text">恐龍蛋即將降落</div>
+    </div><img class="image Pterodactyl" src="./res/singin/Pterodactyl.svg"><img class="image getegg" onclick="breakegg()" src="./res/story/egg2.svg"><img class="image butthead" src="./res/story/butthead.svg">
+    <!-- Backgroung--><img class="image bg_yama" src="./res/singin/bg_yama.svg"><img class="image bg_yama2" src="./res/singin/bg_yama2.svg">
+  </body>
+</html>

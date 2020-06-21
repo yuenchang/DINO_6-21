@@ -1,0 +1,318 @@
+position, #shop, #shop_stall, #shop_closeButton, #shop_logo, #shop_menu, #shop_menu_item, #shop_menu_scene, #shop_menu_special, #shop_menu_reward, #dinosaur_model, #item_01, #item_02, #item_03, #item_04, #item_05, #item_06, #item_07, #item_08, #item_09, #hat_01, #hat_02, #hat_03, #hat_04, #price_01, #price_02, #price_03, #price_04, #hat_model_01, #hat_model_02, #hat_model_03, #hat_model_04, #hat_model_04_02, #purchase_button, #close_button, #purchase_page_01, #purchase_page_02, #purchase_page_03, #purchase_page_04, #backpack, #big_backpack, #backpack_closeButton, #dinosaur_backpack, #backpack_01, #backpack_02, #backpack_03, #backpack_04, #backpack_05, #backpack_06, #backpack_07, #backpack_08, #bp_01, #bp_01_02 {
+  position: absolute; }
+
+opacity_zero, #shop, #shop_stall, #shop_closeButton, #shop_logo, #shop_menu, #shop_menu_item, #shop_menu_scene, #shop_menu_special, #shop_menu_reward, #dinosaur_model, #item_01, #item_02, #item_03, #item_04, #item_05, #item_06, #item_07, #item_08, #item_09, #hat_01, #hat_02, #hat_03, #hat_04, #price_01, #price_02, #price_03, #price_04, #hat_model_01, #hat_model_02, #hat_model_03, #hat_model_04, #hat_model_04_02, #purchase_button, #close_button, #purchase_page_01, #purchase_page_02, #purchase_page_03, #purchase_page_04, #backpack, #big_backpack, #backpack_closeButton, #dinosaur_backpack, #backpack_01, #backpack_02, #backpack_03, #backpack_04, #backpack_05, #backpack_06, #backpack_07, #backpack_08, #bp_01, #bp_01_02 {
+  opacity: 1; }
+
+shop {
+  display: none; }
+
+#shop {
+  width: 5.6vw;
+  top: 0.6vh;
+  left: 61.5vw; }
+
+#shop_stall {
+  width: 87vw;
+  top: 20vh;
+  left: 7vw; }
+
+#shop_closeButton {
+  width: 8.5vw;
+  top: 18vh;
+  left: 79vw; }
+
+#shop_logo {
+  width: 30vw;
+  top: 16vh;
+  left: 35vw; }
+
+#shop_menu {
+  width: 39vw;
+  top: 28vh;
+  left: 38vw;
+  cursor: pointer; }
+
+#shop_menu_item {
+  width: 4.5vw;
+  top: 31.5vh;
+  left: 40.5vw;
+  cursor: pointer; }
+
+#shop_menu_scene {
+  width: 4.5vw;
+  top: 31.5vh;
+  left: 50.5vw;
+  cursor: pointer; }
+
+#shop_menu_special {
+  width: 4.3vw;
+  top: 31.5vh;
+  left: 60.4vw;
+  cursor: pointer; }
+
+#shop_menu_reward {
+  width: 4.5vw;
+  top: 31.5vh;
+  left: 70vw;
+  cursor: pointer; }
+
+#dinosaur_model {
+  width: 65vw;
+  top: 71vh;
+  left: 23vw;
+  z-index: 2; }
+
+#item_01 {
+  width: 19vw;
+  top: 38.5vh;
+  left: 21vw; }
+
+#item_02 {
+  width: 19vw;
+  top: 38.5vh;
+  left: 41vw; }
+
+#item_03 {
+  width: 19vw;
+  top: 38.5vh;
+  left: 61vw; }
+
+#item_04 {
+  width: 19vw;
+  top: 49.5vh;
+  left: 21vw; }
+
+#item_05 {
+  width: 19vw;
+  top: 49.5vh;
+  left: 41vw; }
+
+#item_06 {
+  width: 19vw;
+  top: 49.5vh;
+  left: 61vw; }
+
+#item_07 {
+  width: 19vw;
+  top: 60.4vh;
+  left: 21vw; }
+
+#item_08 {
+  width: 19vw;
+  top: 60.4vh;
+  left: 41vw; }
+
+#item_09 {
+  width: 19vw;
+  top: 60.4vh;
+  left: 61vw; }
+
+#hat_01 {
+  width: 15vw;
+  top: 41vh;
+  left: 23vw;
+  cursor: pointer; }
+
+#hat_02 {
+  width: 15vw;
+  top: 41vh;
+  left: 43vw;
+  cursor: pointer; }
+
+#hat_03 {
+  width: 15vw;
+  top: 40vh;
+  left: 63vw;
+  cursor: pointer; }
+
+#hat_04 {
+  width: 14.5vw;
+  top: 51.5vh;
+  left: 23.2vw;
+  cursor: pointer; }
+
+#price_01 {
+  width: 13vw;
+  top: 46vh;
+  left: 24vw;
+  cursor: pointer; }
+
+#price_02 {
+  width: 13vw;
+  top: 46vh;
+  left: 44vw;
+  cursor: pointer; }
+
+#price_03 {
+  width: 13vw;
+  top: 46vh;
+  left: 64vw;
+  cursor: pointer; }
+
+#price_04 {
+  width: 13vw;
+  top: 57vh;
+  left: 24vw;
+  cursor: pointer; }
+
+#hat_model_01 {
+  width: 30vw;
+  top: 69vh;
+  left: 30vw;
+  z-index: 3;
+  display: none; }
+
+#hat_model_02 {
+  width: 30vw;
+  top: 69vh;
+  left: 25vw;
+  z-index: 3;
+  display: none; }
+
+#hat_model_03 {
+  width: 27vw;
+  top: 67.7vh;
+  left: 29vw;
+  z-index: 3;
+  display: none; }
+
+#hat_model_04 {
+  width: 30vw;
+  top: 71vh;
+  left: 25vw;
+  z-index: 3;
+  display: none; }
+
+#hat_model_04_02 {
+  width: 15vw;
+  top: 72.8vh;
+  left: 27vw;
+  z-index: 1;
+  display: none; }
+
+#purchase_button {
+  width: 15vw;
+  top: 57vh;
+  left: 43vw;
+  cursor: pointer;
+  z-index: 1;
+  display: none; }
+
+#close_button {
+  width: 6.5vw;
+  top: 37.5vh;
+  left: 73vw;
+  cursor: pointer;
+  z-index: 1;
+  display: none; }
+
+#purchase_page_01 {
+  width: 60vw;
+  top: 37vh;
+  left: 20vw;
+  display: none; }
+
+#purchase_page_02 {
+  width: 60vw;
+  top: 37vh;
+  left: 20vw;
+  display: none; }
+
+#purchase_page_03 {
+  width: 60vw;
+  top: 37vh;
+  left: 20vw;
+  display: none; }
+
+#purchase_page_04 {
+  width: 60vw;
+  top: 37vh;
+  left: 20vw;
+  display: none; }
+
+backpack {
+  display: none; }
+
+#backpack {
+  width: 5vw;
+  top: 0.45vh;
+  left: 69.2vw; }
+
+#big_backpack {
+  width: 91vw;
+  top: 30vh;
+  left: 4.5vw; }
+
+#backpack_closeButton {
+  width: 8.5vw;
+  top: 34.3vh;
+  left: 75.5vw; }
+
+#dinosaur_backpack {
+  width: 65vw;
+  top: 68vh;
+  left: 23vw;
+  z-index: 2; }
+
+#backpack_01 {
+  width: 17vw;
+  top: 49vh;
+  left: 13vw;
+  cursor: pointer; }
+
+#backpack_02 {
+  width: 17vw;
+  top: 49vh;
+  left: 32vw;
+  cursor: pointer; }
+
+#backpack_03 {
+  width: 17vw;
+  top: 49vh;
+  left: 51vw;
+  cursor: pointer; }
+
+#backpack_04 {
+  width: 17vw;
+  top: 49vh;
+  left: 70vw;
+  cursor: pointer; }
+
+#backpack_05 {
+  width: 17vw;
+  top: 57.5vh;
+  left: 13vw;
+  cursor: pointer; }
+
+#backpack_06 {
+  width: 17vw;
+  top: 57.5vh;
+  left: 32vw;
+  cursor: pointer; }
+
+#backpack_07 {
+  width: 17vw;
+  top: 57.5vh;
+  left: 51vw;
+  cursor: pointer; }
+
+#backpack_08 {
+  width: 17vw;
+  top: 57.5vh;
+  left: 70vw;
+  cursor: pointer; }
+
+#bp_01 {
+  width: 31vw;
+  top: 68vh;
+  left: 25vw;
+  z-index: 3;
+  display: none; }
+
+#bp_01_02 {
+  width: 16vw;
+  top: 69.7vh;
+  left: 27.1vw;
+  z-index: 1;
+  display: none; }

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DINO</title>
+
+        <link href="./css/style.css" rel="stylesheet" type="text/css">        
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script href="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js">
+        <script src="./js/jquery.min.js"></script>
+        <script src="./js/socket.io.js"></script>
+        <script src="./js/jQueryRotate.js"></script>
+        <script src="./js/jquery-ui.js"></script>
+        <script src="./js/jquery.touchSwipe.js"></script>
+        <script src="./js/jquery.touchSwipe.min.js"></script>
+        <link href="./css/fonts.css" rel="stylesheet" type="text/css">
+        <meta name = "app-mobile-web-app-capable" content="yes">
+        <meta name="viewport" content="user-scalable=no">
+        <meta charset="utf-8">
+    </head>
+    <body style="background-color:#09103A;">
+        <!--變白色的畫面-->
+        <div id="white"></div>
+
+        <img id="upgrade_page_text" src="upgrade/Group 65.svg"/>
+
+        <img id="moon" src="upgrade/月亮和雲@3x.png"></img>
+
+        <!--選擇恐龍-->
+        <div id = "dinos">
+            <img id="voca" src="upgrade/火山屁頭龍.svg"></img>
+            <img id="angel" src="upgrade/天使龍.svg"></img>
+            <img id="wind" src="upgrade/疾風龍.svg"></img>
+        </div>
+
+        <div id="upgrade_word">
+            <img id="dino_name" src="upgrade/疾風屁頭龍word.svg"/>
+            <img id="dino_info" src="upgrade/wind.svg"/>
+        </div>
+
+        <!-- 進化動畫 -->
+        <div id="small_dino">
+            <img id="yellow_dino" src="upgrade/屁頭龍 (1).svg"/>
+            <img id="white_dino" src="upgrade/屁頭龍 (2).svg"/>
+            <img id="big_dino_white" src="upgrade/Group 292.svg"/>
+            <img id="big_dino" src="upgrade/Group 330.svg"/>
+        </div>
+        <script src='./js/choose_upgrade.js'></script>
+    </body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LOG IN</title>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.3/socket.io.js"></script>
+    <script src="./js/socket.io.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js">   </script>
+    <link href="css/signin.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js">
+  </head>
+  <body>
+    <p class="start">TOUCH TO START</p>
+    <p class="id_choose choose--start">我是</p>
+    <p class="id_choose choose--parent">家長</p>
+    <p class="id_choose choose--child">小朋友</p>
+    <button class="button" onclick="GoToParent()"><img class="image mom_dinosaur" src="../res/singin/mom_dinosaur.svg"></button>
+    <button class="button" onclick="GoToChild()"><img class="image child" src="../res/singin/egg.svg"></button>
+    <input class="parent_input" type="password" id="parent_pwd" placeholder="請輸入家長密碼">
+    <p class="form_btn parent_sure " id="parent_login">確認</p>
+
+    <form class="form form--signin" id="signin">
+      <div class="form_blank blank--name">
+        <p class="blank_title">帳號</p>
+        <input class="blank_input input--name" type="text" name="name">
+      </div>
+      <div class="form_blank blank--pwd">
+        <p class="blank_title">密碼</p>
+        <input class="blank_input input--pwd" id="test" type="password" name="pwd">
+      </div>
+      <p class="form_btn btn--signin">登入</p>
+      <p class="form_option option--forget">忘記密碼? </p>
+      <p class="form_option option--seperate"> | </p>
+      <p class="form_option option--signupbtn"> 註冊帳號</p>
+    </form>
+
+    <p class="btn--back"><&nbsp&nbsp返回</p>
+    <form class="form form--signup" id="signup">
+      <div class="form_space blank--signup">
+        <p class="space_title">帳號</p>
+        <input class="space_input input--id" type="text" name="name">
+      </div>
+
+      <div class="form_space blank--signup">
+        <p class="space_title">密碼</p>
+        <input class="space_input input--password" id="test" type="password" name="pwd">
+      </div>
+
+      <div class="form_space blank--signup">
+        <p class="space_title">家長密碼</p>
+        <input class="space_input input--parpwd" type="text" name="name">
+      </div>
+
+      <div class="form_space blank--signup">
+        <p class="space_title">家長生日</p>
+        <input class="space_input input--parbirth" type="text" name="name">
+      </div>
+
+      <div class="form_space blank--signup">
+        <p class="space_title">小朋友生日</p>
+        <input class="space_input input--chibirth" type="text" name="name">
+      </div>
+
+      <div class="form_space blank--signup">
+        <p class="space_title">您的稱謂</p>
+        <input class="space_input input--parcall" type="text" name="name">
+      </div>
+
+      <p class="form_btn btn--signup">註冊</p>
+    </form>
+    <!-- Left top-->
+      <img class="image bg_L1" src="../res/singin/bg_L1.svg">
+      <img class="image bg_L2" src="../res/singin/bg_L2.svg">
+      <img class="image bg_L3" src="../res/singin/bg_L3.svg">
+      <img class="image bg_L4" src="../res/singin/bg_L4.svg">
+      <img class="image leaf_L1" src="../res/singin/leaf_L1.svg">
+      <img class="image leaf_L2" src="../res/singin/leaf_L2.svg">
+    <!-- Right top-->
+      <img class="image bg_R1" src="../res/singin/bg_R1.svg">
+      <img class="image bg_R2" src="../res/singin/bg_R2.svg">
+      <img class="image bg_R3" src="../res/singin/bg_R3.svg">
+      <img class="image bg_4" src="../res/singin/bg_4.svg">
+      <img class="image leaf_R2" src="../res/singin/leaf_R2.svg">
+    <!-- Vines-->
+      <img class="image vine1" src="../res/singin/vine1.svg">
+      <img class="image vine2" src="../res/singin/vine2.svg">
+      <img class="image vine3" src="../res/singin/vine3.svg">
+    <!-- Middle-->
+      <img class="image LOGO" src="../res/singin/LOGO@3x.png">
+      <img class="image LOGO_back" src="../res/singin/Rectangle 1@3x.png">
+      <img class="image egg" src="../res/singin/egg.svg">
+      <img class="image leaf_R1-1" src="../res/singin/leaf_R1-1.svg">
+      <img class="image leaf_R2-2" src="../res/singin/leaf_R1-2.svg">
+      <img class="image Pterodactyl" src="../res/singin/Pterodactyl.svg">
+    <!-- Background-->
+      <img class="image bg_yama" src="../res/singin/bg_yama.svg">
+      <img class="image bg_yama2" src="../res/singin/bg_yama2.svg">
+      <img class="image bigleaf_front" src="../res/singin/bigleaf_front.svg">
+      <img class="image bigleaf_back" src="../res/singin/bigleaf_back.svg">
+      <img class="image bigleaf_front2" src="../res/singin/bigleaf_front.svg">
+    <!--for select-->
+    <!--img(class="image mom_dinosaur", src="../res/singin/mom_dinosaur.svg")-->
+    <!--img(class="image child", src="../res/singin/egg.svg")-->
+    <script src="js/signin.js"></script>
+  </body>
+</html>

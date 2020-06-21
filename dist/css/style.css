@@ -1,0 +1,1260 @@
+*{
+    margin: 0;
+    padding: 0;
+    position: fixed;
+}
+
+@font-face{
+    font-family: GenJyuuGothicH;
+    src: url("./../res/fonts/genjyuugothic/GenJyuuGothic-P-Heavy.ttf");
+}
+@font-face{
+    font-family: GenJyuuGothicM;
+    src: url("./../res/fonts/genjyuugothic/GenJyuuGothic-P-Medium.ttf");
+}
+
+@font-face{
+    font-family: GenJyuuGothicN;
+    src: url("./../res/fonts/GenJyuuGothic-P-Normal.ttf");
+}
+
+.GenJyuuGothicH{
+    font-family: GenJyuuGothicH;
+}
+.GenJyuuGothicM{
+    font-family: GenJyuuGothicM;
+}
+.GenJyuuGothicN{
+    font-family: GenJyuuGothicN;
+}
+
+.flipped {
+  transform: scaleX(-1);
+  -moz-transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+  -khtml-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+}
+
+
+body {
+ /*   background: url("./../assests/bg.png");
+ */  
+ background-color: #f2fcfc;
+ background-size: 100vw;
+}
+
+#background{
+  position: absolute;
+  width: 100vw; 
+}
+
+#cloud{
+  position: absolute;
+  top: 5vh;
+  width: 100vw;
+}
+
+.left_selection{
+    position: absolute;    
+}
+
+.right_selection{
+    position: absolute;    
+}
+
+navigation_bar {    
+    top: 9vh;
+    left: 11.5vw;    
+    color: aqua;    
+}
+
+level_group{
+    position: absolute;
+    left: 0vw;
+}
+
+
+#EXP{
+  width:0em;
+}
+
+#level_logo {
+  top: -1.7vh;
+}
+
+money_group{
+    position: absolute;
+    top: 0.4vh;
+    left: 10vw;
+}
+
+#money_logo{
+    position: absolute;
+    width: 3vw;
+    left: 17.5vw;
+}
+
+#money_rect{
+    position: absolute;
+    width: 20vw;
+    left: 21vw;
+}
+
+#money_value{
+  position: absolute;
+  font-family: GenJyuuGothicM;
+  font-size: 3em;
+  color: #416545;
+  top: -0.2vh;
+  left: 26vw;
+}
+
+#nortification{
+    left: 66vw;
+    width: 5vw;
+    top: 9.5vh;
+    z-index: -2;
+}
+
+#setting{
+    position: absolute;
+    width: 6vw;
+    top: 0.5vh;
+    left: 76vw;
+}
+
+#help{
+    position: absolute;
+    width: 6vw;
+    top: 0.55vh;
+    left: 73vw;
+}
+
+#ass_dinasour{
+    width: 63vw;
+    left: 23vw;
+    top: 40vh;    
+}
+
+#dinasour{
+    width: 63vw;
+    left: 19vw;
+    top: 41vh;    
+}
+
+.left_selection{    
+}
+
+#left_leaf{
+    width: 43vw;
+    bottom: 0vh;
+    left: 0vw;
+}
+
+#mission_logo{
+    width: 7vw;
+    bottom: 7vh;
+    left: 11vw;
+}
+
+#mission_text{
+    width: 13vw;
+    bottom: 4.5vh;
+    left: 9vw;
+}
+
+#right_leaf{
+    width: 43vw;
+    bottom: 0vh;
+    right: 0vw;
+}
+
+#training_logo{
+    width: 11vw;
+    bottom: 7.5vh;
+    right: 9.5vw;   
+}
+
+#training_text{
+    width: 16.5vw;
+    bottom: 4.5vh;
+    right: 7.8vw;
+}
+/** 以下為加上的扣 **/
+.info{
+    display: none;
+}
+
+.write_letter{
+    display: none;
+}
+
+#bell{
+    display: none;
+    left: 42em;
+    width: 2em;
+    top: 12em;
+    z-index: 0;
+}
+
+#kid_name{
+    top: 4.5vh;
+    left: 13vw;
+    color: #4C6046;
+    font-family: GenJyuuGothicH;
+    font-size: 4em;
+}
+
+#letter_bg_rec{
+    position: absolute;
+    left: 9vw;
+    top: 32vh;
+    width: 80vw;
+    z-index: 3;
+    display: none;
+}
+
+#letter_bg{
+    position: absolute;
+    left: 9vw;
+    top: 32vh;
+    width: 80vw;
+    z-index: 4;
+}
+
+#letter_bg_p{
+    position: absolute;
+    left: 9vw;
+    top: 32vh;
+    width: 80vw;
+    z-index: 4;
+}
+
+#letter_info{
+    width: 100vw;
+    top: 73.5vh;
+}
+
+#letter_info_p{
+    width: 100vw;
+    top: 73.5vh;
+}
+
+#letter_info_click{
+    position: absolute;
+    left: 40vw;
+    top: 92vh;
+}
+
+#letter{
+    left: 18vw;
+    top: 44vh;
+    border-radius: 40px;
+    resize: none;
+    width: 62vw;
+    height: 28vh;
+    font-size: 3vw;
+    font-family: GenJyuuGothicN;
+    z-index: 6;
+}
+
+#letter_submit{
+    left: 32vw;
+    top: 74vh;
+    z-index: 6;
+}
+
+#pen{
+    left: 34vw;
+    top: 26vh;
+    z-index: 2;
+}
+
+#letter_back{
+    top: 35vh;
+    left: 18vw;
+}
+
+#sent{
+    width: 30vw;
+    top:56.3vh;
+    left: 33vw;
+    z-index: 8;
+    display: none;
+}
+#cover{
+    background: #000; 
+    position: absolute; 
+    left: 0px; 
+    top: 0px; 
+    width: 100vw;
+    height: 100vh;
+    filter: alpha(opacity=30); 
+    opacity: 0.3; 
+    display: none; 
+    z-index: 2 
+}
+
+/* BK CODE*/
+
+#black{
+    position: absolute;
+    width: 100vw;
+    z-index: 2;
+    display: none;
+}
+
+#info{
+    display:none;
+    font-family: 'Gen-M'; 
+}
+
+#all_letter{
+    display:none;
+}
+
+#unscored{
+    z-index: 8;
+    width: 7rem;
+    top: 34rem;
+    left: 44rem;
+}
+
+#scored{
+    z-index: 8;
+    width: 7rem;
+    top: 34rem;
+    left: 35rem;
+}
+
+
+#container{
+    position: absolute;
+    z-index: 3;
+    width: 80vw;                                                                                                                       
+    top: 16vh;
+    left: 11vw;
+}
+
+#sysinfo{
+    position: absolute;
+    z-index: 4;
+    font-size: 3em;
+    color: #ffffff;
+    top: 23.5rem;
+    left: 10.5rem;
+    width: 16rem;
+    padding: 0.5em 1em 0.5em;
+    display: inline-block;
+    font-family: GenJyuuGothicH;
+}
+
+
+#mail{
+    position: absolute;
+    z-index: 4;
+    font-size: 3em;
+    color: #ffffff;
+    top: 23.5rem;
+    left: 34.5rem;
+    width: 12rem;
+    padding: 0.5em 1em 0.5em;
+    display: inline-block;
+    font-family: GenJyuuGothicH;                                                                                                       
+}
+
+#msg{
+    height: 50rem;
+    width: 12rem;
+    display:inline-block;
+}
+
+#content{
+    position: absolute;
+    z-index: 4;
+    font-size:3em;
+    color:#ffffff;
+    top: 29vh;
+    left: 14.5vw;
+    width: 41rem;
+    height: 43rem;
+    padding: 0.5em 1em 0.5em;
+    display:inline-block;
+    overflow: scroll;
+    font-family: GenJyuuGothicN;
+}
+
+
+
+#letter_p_close{
+    height: 6rem;
+    left: 24rem;
+    top: 87.5rem;
+    z-index: 5;
+}
+
+
+.letter{
+  position: relative;
+  display: inline-block;
+  width: 37rem;                                                                                                                        
+  height: 10rem;
+  border-bottom-style: solid;
+  font-size: 3rem;
+}
+
+
+.letter-expand{
+  height: 31vh;
+  font-size: 3rem;
+}
+
+
+.text{
+  position: relative;
+  display: none;                                                                                                                       
+  width: 37rem;
+  height: 5vh;
+  
+}
+
+.bad{
+  position: relative;
+  display: none;
+  width: 3em;
+  left:1em;
+  top:23%;
+}
+
+.nice{
+  position: relative;
+  display: none;
+  width: 3em;
+  left:1em;
+  top:23%;
+}
+
+
+.score{
+  width: 23vw;
+  position: relative;
+}
+
+.node{
+  top: 0%;
+  position: relative;
+  display: inline-block;
+}
+
+.node-expand{
+  top: -16%;
+}
+
+.nice>img {
+    height: 5rem;
+    left: 13rem;
+    top: 13rem;
+}
+
+.bad>img {
+    height: 5rem;
+    left: 14rem;
+    top: 13rem;
+}
+
+
+/* HO CODE */
+#answer1_01{
+    position: absolute;
+    width: 7vw;
+    height: 3.5vh;
+    left: 21vw;
+    top: 30.5vh;   
+    border-style: solid;
+    border-width: 5pt;
+    border-color:red;    
+    border-radius: 50%;        
+    z-index: 10;
+    display: none;    
+}
+
+#answer1_02{
+    position: absolute;
+    width: 7vw;
+    height: 3.5vh;
+    left: 21vw;
+    top: 49.5vh;   
+    border-style: solid;
+    border-width: 5pt;
+    border-color:red;    
+    border-radius: 50%;
+    cursor: pointer;    
+    z-index: 10;
+    display: none;
+}
+
+#answer1_03{
+    position: absolute;
+    width: 13vw;
+    height: 4vh;
+    left: 37vw;
+    top: 32.5vh;   
+    border-style: solid;
+    border-width: 5pt;
+    border-color:red;    
+    border-radius: 50%;
+    cursor: pointer;    
+    z-index: 10;
+    display: none;
+}
+
+#answer1_04{
+    position: absolute;
+    width: 13vw;
+    height: 4vh;
+    left: 37vw;
+    top: 51.5vh;   
+    border-style: solid;
+    border-width: 5pt;
+    border-color:red;    
+    border-radius: 50%;
+    cursor: pointer;    
+    z-index: 10;
+    display: none;
+}
+
+#answer1_05{
+    position: absolute;
+    width: 5vw;
+    height: 2.5vh;
+    left: 55.5vw;
+    top: 32vh;   
+    border-style: solid;
+    border-width: 5pt;
+    border-color:red;    
+    border-radius: 50%;
+    cursor: pointer;    
+    z-index: 10;
+    display: none;
+}
+
+#answer1_06{
+    position: absolute;
+    width: 5vw;
+    height: 2.5vh;
+    left: 55.5vw;
+    top: 50.5vh;   
+    border-style: solid;
+    border-width: 5pt;
+    border-color:red;    
+    border-radius: 50%;
+    cursor: pointer;    
+    z-index: 10;
+    display: none;
+}
+
+#answer1_07{
+    position: absolute;
+    width: 5vw;
+    height: 2.5vh;
+    left: 70vw;
+    top: 37.7vh;   
+    border-style: solid;
+    border-width: 5pt;
+    border-color:red;    
+    border-radius: 50%;
+    cursor: pointer;    
+    z-index: 10;
+    display: none;
+}
+
+#answer1_08{
+    position: absolute;
+    width: 5vw;
+    height: 2.5vh;
+    left: 70vw;
+    top: 56.5vh;   
+    border-style: solid;
+    border-width: 5pt;
+    border-color:red;    
+    border-radius: 50%;
+    cursor: pointer;    
+    z-index: 10;
+    display: none;
+}
+
+#answer1_09{
+    position: absolute;
+    width: 8vw;
+    height: 4vh;
+    left: 72vw;
+    top: 42vh;   
+    border-style: solid;
+    border-width: 5pt;
+    border-color:red;    
+    border-radius: 50%;
+    cursor: pointer;    
+    z-index: 10;
+    display: none;
+}
+
+#answer1_10{
+    position: absolute;
+    width: 8vw;
+    height: 4vh;
+    left: 72vw;
+    top: 60vh;   
+    border-style: solid;
+    border-width: 5pt;
+    border-color:red;    
+    border-radius: 50%;
+    cursor: pointer;    
+    z-index: 10;
+    display: none;
+}
+
+
+
+#fTD_question{
+    position: absolute;
+    width: 80vw;
+    left: 10vw;
+    top: 29vh;         
+    display: none;
+}
+
+#fTD_question2{
+    position: absolute;
+    width: 80vw;
+    left: 10vw;
+    top: 29vh;    
+    display: none;
+}
+
+information_box {
+    display: none;
+}
+
+.information_box{    
+    width: 100vw;
+    height: 29vh;
+    bottom: 0vh;
+    background-color: white;
+    opacity: 0;
+}
+
+#subtitle_text_01{
+    position: absolute;
+    width: 100vw;
+    bottom: 0vh;
+    opacity: 1;
+    display: none;
+}
+
+#button_01{
+    position: absolute;
+    width: 18vw;
+    left: 40vw;
+    bottom: 5vh;    
+    z-index: 1; 
+}
+
+#subtitle_text_02{
+    position: absolute;    
+    width: 100vw;
+    bottom: 0vh;
+    opacity: 1;
+    display: none; 
+}
+
+#subtitle_text_03{
+    position: absolute;    
+    width: 100vw;
+    bottom: 0vh;
+    opacity: 1;
+    display: none;
+}
+
+/* 返回 */
+#button_02{
+    position: absolute;
+    width: 19vw;
+    left: 40vw;
+    top: 67vh;    
+    z-index: 1;
+    display: none;
+}
+/*　結束遊戲 */
+#button_03{
+    position: absolute;
+    width: 19vw;
+    left: 40vw;
+    top: 67vh;        
+    display: none;
+}
+/* 開始遊戲　*/
+#start_button{
+    position: absolute;
+    width: 19vw;
+    left: 40vw;
+    top: 46vh;    
+    z-index: 5;
+    display: none;
+}
+
+@keyframes fade_in{
+    100%{
+        opacity: 1;       
+    }
+}
+
+@keyframes fade_out{
+    100%{        
+        /*left: 120vw;*/
+        opacity: 0;
+        
+    }
+}
+
+@keyframes fade_down{
+    100%{        
+        opacity: 1;
+        bottom: -50vh;
+    }
+}
+
+@keyframes fade_left{    
+    100%{        
+        left: 500px;
+    }
+}
+
+.fade_in{
+    animation-name: fade_in;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.fade_out{
+    animation-name: fade_out;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.fade_left{
+    animation-name: fade_left;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+#findTheDifference{
+    position: absolute;
+    width: 39vw;
+    left: 30vw;
+    top: 30vh;    
+    z-index: 10;
+    display: none;
+}   
+
+#jumpJumpGame{
+    position: absolute;
+    width: 39vw;
+    left: 30vw;
+    top: 49vh;    
+    z-index: 10;
+    display: none;
+}
+
+#white_cover{
+    position: absolute;
+    width: 80vw;
+    top: 29vh;
+    left: 10vw;
+    opacity: 0;
+    z-index: 5;
+    display: none;     
+}
+
+#black_cover{
+    position: absolute;
+    width: 100vw;
+    top: 0vh;
+    left: 0vw;
+    display: none;
+}
+
+#timer{
+    position: absolute;
+    width: 15vw;
+    top: 17vh;
+    left: 42vw;    
+    display: none;
+}
+
+#time{
+    position: absolute;
+    width: 20vw;
+    left: 39.5vw;
+    top: 20vh;
+    font-size: 3em;
+    color: #416545;    
+    display: none;
+}
+
+.center{
+    text-align: center;
+}
+
+#share_button{
+    position: absolute;   
+    width: 21vw;
+    top: 60vh;
+    left: 24vw;    
+    z-index: 3;
+    display: none;
+}
+
+#ok_button{
+    position: absolute;
+    width: 21vw;
+    top: 60vh;
+    left: 54vw;    
+    z-index: 3;   
+    display: none;
+}
+
+#result_list{
+    position: absolute;
+    width: 80vw;
+    top: 33vh;
+    left: 10vw;
+    opacity: 1;
+    display: none;
+}
+
+#text_01{
+    position: absolute;
+    width: 40vw;
+    top: 35vh;
+    left: 30.5vw;
+    font-size: 6.5em;
+    color: #783F1E;    
+    z-index: 10;
+    display: none;
+}
+
+#text_02{
+    position: absolute;
+    width: 9vw;
+    top: 49vh;
+    left: 45vw;    
+    display: none;
+}
+
+#result_text{
+    position: absolute;
+    width: 26vw;
+    top: 53vh;
+    left: 37vw;
+    font-size: 5em;
+    color: #FFDF96;
+    opacity: 1;    
+    display: none
+}
+
+#footstep_01{
+    position: absolute;
+    width: 28vw;
+    top: 39vh;
+    left: 19vw;
+    opacity: 1;
+    display: none;
+}
+
+#footstep_02{
+    position: absolute;
+    width: 28vw;
+    top: 39vh;
+    left: 37vw;
+    opacity: 1;
+    display: none;
+}
+
+#footstep_03{
+    position: absolute;
+    width: 28vw;
+    top: 39vh;
+    left: 55vw;
+    opacity: 1;
+    display: none;
+}
+
+#rank_list{
+    position: absolute;
+    width: 80vw;
+    top: 70vh;
+    left: 10vw;
+    opacity: 1;
+    display: none;
+}
+
+#text_03{
+    position: absolute;
+    width: 15vw;
+    top: 72.5vh;
+    left: 42vw;
+    opacity: 1;
+    display: none;
+}
+
+#text_04{
+    position: absolute;
+    width: 47vw;
+    top: 77vh;
+    left: 26vw;
+    opacity: 1;
+    display: none;
+}
+
+#answer2_01{
+    position: absolute;
+    width: 20vw;
+    height: 5vh;
+    left: 10.5vw;
+    top: 41.5vh;   
+    border-style: solid;
+    border-width: 5pt;
+    border-color:red;    
+    border-radius: 50%;        
+    z-index: 10;
+    display: none;
+}
+
+#answer2_02{
+    position: absolute;
+    width: 20vw;
+    height: 5vh;
+    left: 10.5vw;
+    top: 60vh;   
+    border-style: solid;
+    border-width: 5pt;
+    border-color:red;    
+    border-radius: 50%;        
+    z-index: 10;
+    display: none;
+}
+
+#answer2_03{
+    position: absolute;
+    width: 6vw;
+    height: 3vh;
+    left: 37.5vw;
+    top: 29.3vh;   
+    border-style: solid;
+    border-width: 5pt;
+    border-color:red;    
+    border-radius: 50%;        
+    z-index: 10;
+    display: none;
+}
+
+#answer2_04{
+    position: absolute;
+    width: 6vw;
+    height: 3vh;
+    left: 37.5vw;
+    top: 47.8vh;   
+    border-style: solid;
+    border-width: 5pt;
+    border-color:red;    
+    border-radius: 50%;        
+    z-index: 10;
+    display: none;
+}
+
+#answer2_05{
+    position: absolute;
+    width: 8vw;
+    height: 4vh;
+    left: 52vw;
+    top: 40vh;   
+    border-style: solid;
+    border-width: 5pt;
+    border-color:red;    
+    border-radius: 50%;        
+    z-index: 10;
+    display: none;   
+}
+
+#answer2_06{
+    position: absolute;
+    width: 8vw;
+    height: 4vh;
+    left: 52vw;
+    top: 58.5vh;   
+    border-style: solid;
+    border-width: 5pt;
+    border-color:red;    
+    border-radius: 50%;        
+    z-index: 10;
+    display: none;
+}
+
+#answer2_07{
+    position: absolute;
+    width: 8vw;
+    height: 4vh;
+    left: 73vw;
+    top: 35vh;   
+    border-style: solid;
+    border-width: 5pt;
+    border-color:red;    
+    border-radius: 50%;        
+    z-index: 10;
+    display: none;
+}
+
+#answer2_08{
+    position: absolute;
+    width: 8vw;
+    height: 4vh;
+    left: 71.5vw;
+    top: 53vh;   
+    border-style: solid;
+    border-width: 5pt;
+    border-color:red;    
+    border-radius: 50%;        
+    z-index: 10;
+    display: none;
+}
+
+#answer2_09{
+    position: absolute;
+    width: 20vw;
+    height: 5vh;
+    left: 64vw;
+    top: 42vh;   
+    border-style: solid;
+    border-width: 5pt;
+    border-color:red;    
+    border-radius: 50%;        
+    z-index: 10;
+    display: none;
+}
+
+#answer2_10{
+    position: absolute;
+    width: 20vw;
+    height: 5vh;
+    left: 64vw;
+    top: 60.5vh;   
+    border-style: solid;
+    border-width: 5pt;
+    border-color:red;    
+    border-radius: 50%;        
+    z-index: 10;
+    display: none;
+}
+
+
+
+/**** 進化 ****/
+.upgrage_info{
+    display: none;
+}
+
+#upgrage_info_text{
+    width: 100vw;
+    top: 35vh; 
+}
+
+#upgrage_info_ok{
+    width: 21vw;
+    top: 57vh;
+    left: 37vw;
+}
+
+#upgrade_page_text{
+    width: 100vw;
+    top: 79vh;
+}
+
+#wind{
+    width: 60vw;
+    top: 24vh;
+    left: 22vw;
+}
+
+#angel{
+    top: 33vh;
+    width: 17vw;
+    left: 71vw;
+}
+
+#voca{
+    top: 33vh;
+    width: 14vw;
+    left: 11vw;
+}
+
+#dinos{
+    width: 100vw;
+    height: 40vh;
+    top: 16vh;
+}
+
+#moon{
+    top: 4vh;
+    left: -13vw;
+    width: 58vh;
+}
+
+#dino_name{
+    width: 30vw;
+    top: 59vh;
+    left: 36vw;
+}
+
+#dino_info{
+    width: 59vw;
+    top: 65vh;
+    left: 20vw;
+}
+
+#yellow_dino{
+    width: 57vw;
+    top: 40vh;
+    left: 25vw;
+    display: none;
+}
+
+#white_dino{
+    width: 52.5vw;
+    top: 41.5vh;
+    left: 28vw;
+    display: none;
+    z-index: -1;
+}
+
+#big_dino_white{
+    width: 62vw;
+    top: 38vh;
+    left: 16vw;
+    display: none;
+}
+
+#big_dino{
+    width: 71vw;
+    top: 38vh;
+    left: 11vw;
+    display: none;
+}
+
+#white{
+    background:white; 
+    position: absolute; 
+    left: 0px; 
+    top: 0px; 
+    width: 100vw;
+    height: 100vh;
+    display: none; 
+    z-index: 2 
+}
+
+#ajax-output1 {
+    position: absolute;
+    width: 50vw;
+    height: 2vh;
+    top: 77vh;
+    left: 24vw;
+    z-index: 20;
+    font-size: 35px;
+    color: #FFDF96;
+    font-family: GenJyuuGothicH;
+    text-align: center;
+    letter-spacing: 4px;
+    display: none;
+    opacity: 0;
+}
+
+#ajax-output2 {
+    position: absolute;
+    width: 50vw;
+    height: 2vh;
+    top: 81.4vh;
+    left: 24vw;
+    z-index: 20;
+    font-size: 35px;
+    color: #FFDF96;
+    font-family: GenJyuuGothicH;
+    text-align: center;
+    letter-spacing: 4px;
+    display: none;
+    opacity: 0;
+}
+
+#ajax-output3 {
+    position: absolute;
+    width: 50vw;
+    height: 2vh;
+    top: 85.7vh;
+    left: 24vw;
+    z-index: 20;
+    font-size: 35px;
+    color: #FFDF96;
+    font-family: GenJyuuGothicH;
+    text-align: center;
+    letter-spacing: 4px;
+    display: none;
+    opacity: 0;
+}
+
+#output1-value {
+    position: absolute;
+    width: 50vw;
+    height: 2vh;
+    top: 77vh;
+    left: 68vw;
+    z-index: 20;
+    font-size: 35px;
+    color: #FFDF96;
+    font-family: GenJyuuGothicH;
+    text-align: center;
+    letter-spacing: 4px;
+    display: none;
+    opacity: 0;
+}
+
+#output2-value {
+    position: absolute;
+    width: 50vw;
+    height: 2vh;
+    top: 81.4vh;
+    left: 68vw;
+    z-index: 20;
+    font-size: 35px;
+    color: #FFDF96;
+    font-family: GenJyuuGothicH;
+    text-align: center;
+    letter-spacing: 4px;
+    display: none;
+    opacity: 0;
+}
+
+#output3-value {
+    position: absolute;
+    width: 50vw;
+    height: 2vh;
+    top: 85.7vh;
+    left: 68vw;
+    z-index: 20;
+    font-size: 35px;
+    color: #FFDF96;
+    font-family: GenJyuuGothicH;
+    text-align: center;
+    letter-spacing: 4px;
+    display: none;
+    opacity: 0;
+}

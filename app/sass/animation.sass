@@ -1,0 +1,94 @@
+//@mixin for keyframe
+=keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-ms-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content
+
+//@mixin for animation
+=animation($content)
+  -webkit-animation: $content
+  -moz-animation: $content
+  -o-animation: $content
+  animation: $content
+
+=floatup($object, $top)
+  +keyframes($object+--floatup)
+    to
+      top: $top
+
++keyframes(fadein)
+  from
+    opacity: 0
+  to
+    opacity: 1
+
++keyframes(fadeout)
+  from
+    opacity: 1
+  to
+    display: none
+    opacity: 0
+
++floatup(LOGO, 11vh)
++floatup(LOGO_back, 11vh)
++floatup(Pterodactyl, 11vh)
++floatup(leaf_R1-1, 8.9vh)
++floatup(leaf_R2-2, 14.2vh)
++floatup(bigleaf_back, 5.5vh)
++floatup(bigleaf_front, 3.5vh)
++floatup(egg, 6vh)
+
+.fadeout
+  +animation(fadeout)
+  animation-duration: 1s
+  animation-fill-mode: forwards  
+
+.fadein
+  +animation(fadein)
+  animation-duration: 1s
+  animation-fill-mode: forwards
+
+.LOGO--floatup
+  +animation(LOGO--floatup)
+  animation-duration: 1s
+  animation-fill-mode: forwards
+
+.LOGO_back--floatup
+  +animation(LOGO_back--floatup)
+  animation-duration: 1s
+  animation-fill-mode: forwards
+
+.Pterodactyl--floatup
+  +animation(Pterodactyl--floatup)
+  animation-duration: 1s
+  animation-fill-mode: forwards
+
+.leaf_R1-1--floatup
+  +animation(leaf_R1-1--floatup)
+  animation-duration: 1s
+  animation-fill-mode: forwards
+
+.leaf_R2-2--floatup
+  +animation(leaf_R2-2--floatup)
+  animation-duration: 1s
+  animation-fill-mode: forwards
+
+.bigleaf_back--floatup
+  +animation(bigleaf_back--floatup)
+  animation-duration: 1s
+  animation-fill-mode: forwards
+
+.bigleaf_front--floatup
+  +animation(bigleaf_front--floatup)
+  animation-duration: 1s
+  animation-fill-mode: forwards
+
+.egg--floatup
+  +animation(egg--floatup)
+  animation-duration: 1s
+  animation-fill-mode: forwards
