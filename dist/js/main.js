@@ -4,6 +4,9 @@ var childIsReady2 = 0,parentIsReady2 = 0;
 var page = 0;
 var can_upgrade = false;
 $(document).ready(function () {
+  /* 確認恐龍是哪隻 */
+  socket.emit('give_me_dino', {ID: getCookie('ID')});
+
   $('#letter').html("\n  謝謝" + getCookie('nickname') + "\n\n  因為...\n\n  這讓我覺得...");
   var id = getCookie('ID'); 
   if(id==null)
@@ -305,8 +308,6 @@ socket.on('give_you_letter_k', function(data){
 
 socket.on('give_you_money', function(data){  
   if(data.ID == getCookie('ID')){
-
-
   }
 })
 
@@ -332,6 +333,30 @@ socket.on('give_you_stage', function(data){
     i.innerHTML = data.Stage;
   }
 })
+
+socket.on('give_you_dino', function(data){
+  if(data.ID == getCookie('ID')){
+    var dino = data.Dino;
+  
+    if(dino == 0)
+    {
+      $('#ass_dinasour').attr("src", "./assests/屁頭龍.png");
+    }
+    else if(dino == 1)
+    {
+      $('#ass_dinasour').attr("src", "./upgrade/疾風龍 (1).svg");
+    }
+    else if(dino == 2)
+    {
+      $('#ass_dinasour').attr("src", "./upgrade/Group 330.svg");
+    }
+    else if(dino == 3)
+    {
+      $('#ass_dinasour').attr("src", "./upgrade/天使龍 (1).svg");
+    }
+  }
+})
+
 socket.on('fuckyou', function(data){
   if(data.ID == getCookie('ID')){
     alert('1234');

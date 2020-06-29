@@ -28,7 +28,7 @@ socket.on('Go', function(data){
       $('body').click(next);
       page = 1;
     }else{
-      alert('wait kid');
+      alert('Wait for kid to log in!');
     }
   }
 })
@@ -144,6 +144,7 @@ function next(){
       socket.emit('end_story', {ID:id} );
       setTimeout("location.href='main_p.html'",3000);
     });
+    page = 17;
   }
 }	
 

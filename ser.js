@@ -53,7 +53,8 @@ app.get('/register', (req, res) => {
           letter: "",
           letter_for_kid:"",
           score: 0,
-          stage: 0
+          stage: 0,
+          dino: 0
         } 
         var reff = database.ref('account/'+req.query.id);
         reff.set(input);
@@ -96,6 +97,7 @@ app.get('/signin',(req, res) =>{
           var nickname = data.val().nickname
           var birthday = data.val().birthday
           var stage = data.val().stage
+          var dino = data.val().dino
           console.log(typeof(nickname))
           console.log(nickname)
           //傳給cookie的資料為下
@@ -106,7 +108,8 @@ app.get('/signin',(req, res) =>{
               "nickname": "${nickname}",
               "birthday": "${birthday}",
               "exist": true,
-              "stage": "${stage}"
+              "stage": "${stage}",
+              "dino": "${dino}"
             }
           `)
         }
@@ -268,7 +271,8 @@ io.on('connection', function(socket) {
           letter_for_kid: db.val().letter_for_kid,
           score: db.val().score,
           stage: db.val().stage,
-          money: db.val().money
+          money: db.val().money,
+          dino: db.val().dino
         }
         reff.set(input);
         console.log(letters)
@@ -311,7 +315,8 @@ io.on('connection', function(socket) {
         letter_for_kid: letters,
         score: db.val().score,
         stage: db.val().stage,
-        money: db.val().money
+        money: db.val().money,
+        dino: db.val().dino
       }
       reff.set(input);
       console.log(letters)
@@ -415,7 +420,7 @@ socket.on('give_me_letter', function(data){
 
     /* 確認有沒有信 */
     socket.on('is_there_letter', function(data){
-      database.ref('account/'+data.ID).once('value',db=>{
+      database.ref('account/'+data.ID).on('value',db=>{
         for(var i=0; i< db.val().letter.length; i++)
         {
           if(db.val().letter[i].read == false)
@@ -460,7 +465,7 @@ socket.on('give_me_letter', function(data){
     })
 
     socket.on('give_me_score', function(data){
-      database.ref('account/'+data.ID+'/score').once('value',db=>{
+      database.ref('account/'+data.ID+'/score').on('value',db=>{
         var s = db.val();
         socket.emit('give_you_score', {ID:data.ID, Score:s});//傳
       });
@@ -546,6 +551,39 @@ socket.on('give_me_letter', function(data){
     socket.on('game_over', function(data){
       console.log("game_over");
       io.sockets.emit('game_over_toClient',{ID:data.ID});
+    })
+
+
+
+    /***  進化之後改變dino ***/
+
+    socket.on('dino_change', function(data){
+      var reff = database.ref('account/'+data.ID);
+      database.ref('account/'+data.ID).once('value',db=>{
+        
+        // 將所有的資料再包一次.並傳進database. 不然新資料會覆蓋掉舊的資料
+        var input = {
+          password:db.val().password,
+          parent_password: db.val().parent_password,
+          parent_birth: db.val().parent_birth,
+          child_birth: db.val().child_birth,
+          nickname: db.val().nickname,
+          letter: db.val().letter,
+          letter_for_kid: db.val().letter_for_kid,
+          score: 0,
+          stage: db.val().stage,
+          money: db.val().money,
+          dino: data.dino
+        }
+        reff.set(input);
+      });
+    })
+
+    socket.on('give_me_dino', function(data){
+      database.ref('account/'+data.ID+'/dino').once('value',db=>{
+        var dino = db.val();
+        socket.emit('give_you_dino', {ID:data.ID, Dino:dino});//傳
+      });
     })
 
 

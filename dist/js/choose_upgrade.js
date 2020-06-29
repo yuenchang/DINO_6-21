@@ -1,22 +1,27 @@
-// <script src="./js/jquery.touchSwipe.js"></script>
-//<script src="./js/jquery.touchSwipe.min.js"></script>
+var wip = "wss://" + window.location.host;
+var socket = io(wip);
+
 var count = 0;
+
 $(document).ready(function () {
     $('#dinos').click( function(){
         if(count % 3 == 0)
         {
             $('#big_dino_white').attr("src", "./upgrade/Group 292.svg");
             $('#big_dino').attr("src", "./upgrade/疾風龍 (1).svg");
+            socket.emit('dino_change',{ID:getCookie('ID'), dino:1});
         }
         else if(count % 3 == 2 || count % 3 == -1)
         {
-            $('#big_dino_white').attr("src", "./upgrade/Group 292.svg");
+            $('#big_dino_white').attr("src", "./upgrade/Group 330 (1).svg");
             $('#big_dino').attr("src", "./upgrade/Group 330.svg");
+            socket.emit('dino_change',{ID:getCookie('ID'), dino:2});
         }
         else if(count % 3 == 1 || count % 3 == -2)
         {
-            $('#big_dino_white').attr("src", "./upgrade/Group 292.svg");
+            $('#big_dino_white').attr("src", "./upgrade/Group 331.svg");
             $('#big_dino').attr("src", "./upgrade/天使龍 (1).svg");
+            socket.emit('dino_change',{ID:getCookie('ID'), dino:3});
         }
 
         $('#moon').fadeOut(1500);
@@ -272,6 +277,10 @@ $(document).ready(function () {
                 $('#white').fadeOut(1000);
             },10000)
 
+            setTimeout(function(){
+                document.location.href="./main.html"
+            },13000)
+
             
         });
       });
@@ -335,3 +344,8 @@ $(function() {
 
 });
 
+function getCookie(name) {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length == 2) return parts.pop().split(";").shift();
+}
