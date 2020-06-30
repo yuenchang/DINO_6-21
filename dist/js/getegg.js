@@ -3,11 +3,49 @@ var wip = "wss://"+window.location.host;
 var socket = io(wip);
 
 var stage = 0;
+var intro_cnt = 0;
 
 $(document).ready(function (){
   
   socket.emit('kidready', {ID:getCookie('ID')} );
   stage = 0;
+
+    //modify
+    $('.next_intro').click(function(){
+      var tmpn = intro_cnt.toString();
+      var n = ".intro" + tmpn
+      console.log("n=",n)
+      $(n).show()
+      intro_cnt++;
+      if(intro_cnt==3){
+        document.getElementById( "step" ).style.left = "64vw";
+      }
+      if(intro_cnt==4){
+        document.getElementById( "step" ).style.left = "75.5vw";      
+      }
+      else if(intro_cnt==5){
+        document.getElementById( "step" ).style.left = "75.5vw";      
+      }
+      else if(intro_cnt==6){
+        document.getElementById( "step" ).style.left = "75.5vw";      
+      }
+      else if(intro_cnt==7){
+        document.getElementById( "step" ).style.left =  "75.5vw";      
+      }   
+      else if(intro_cnt==8){
+        document.getElementById( "step" ).style.top = "74vh";
+        document.getElementById( "step" ).style.left = "38vw";  
+      }
+      else if(intro_cnt==9){
+        $(".next_intro").hide()
+        $(".finish_intro").show()
+      }
+    })
+  
+    $('.finish_intro').click(function(){
+      setTimeout("location.href='main.html'",1000);
+    })
+
 });
 
 socket.on('help', function(data){
@@ -68,8 +106,19 @@ function breakegg(){
   }else if(stage == 5){ 
     $('.getegg').fadeOut(400);
     $('.butthead').fadeIn(400);
-    setTimeout("location.href='main.html'",3000);
+    //setTimeout("location.href='main.html'",3000);
+    setTimeout(() => {
+      $(".intro0").show()
+      $(".next_step").show()
+    }, 3000)
   }
+}
+
+function know(){
+  $(".next_step").fadeOut(500);
+  $(".intro1").fadeIn(500);
+  $(".next_intro").show()
+  intro_cnt = 2;
 }
 
 function getCookie(name) {
