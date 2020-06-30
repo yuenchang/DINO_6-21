@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 8887
+const port = 65530
 const https = require('https')
 const fs = require('fs');
 
@@ -52,10 +52,10 @@ app.get('/register', (req, res) => {
           nickname: req.query.nickname,
           letter: "",
           letter_for_kid:"",
-          score: 0,
           stage: 0,
+          score: 0,
           dino: 0
-        } 
+        }
         var reff = database.ref('account/'+req.query.id);
         reff.set(input);
       }
@@ -209,7 +209,8 @@ io.on('connection', function(socket) {
               letter: "",
               letter_for_kid:"",
               score: 0,
-              stage: 0
+              stage: 0,
+              dino: 0
             }
             var reff = database.ref('account/'+data.id);
             reff.set(input);

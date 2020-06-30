@@ -334,3 +334,60 @@ body {
   right: 23vw;
   top: 40vh;
   z-index: 1; }
+
+  .intro {
+    display: none;
+    z-index:10;
+    position: absolute;
+    width: 100vw;
+ 
+  }
+  
+  .next_step {
+   width: 20vw;
+   display: none;
+   position: absolute;
+   top: 91.5vh;
+   left: 40.5vw;
+   z-index: 11;
+  }  
+
+ .next_intro {
+    width: 10vw;
+    border-style: none;
+    font-family: "Gen-M";
+    font-size: 3.2vw;
+    letter-spacing: 0.04em;
+    font-weight: 900;
+    display: none;
+    border-radius: 6vw;
+    padding: 0.4vh 2vw 0.4vh 2vw;
+    background-color: #FFFFFF;
+    color: #4C6046;
+    position: absolute;
+    top: 23.5vh;
+    left: 51vw;
+    z-index: 12;
+    text-align: center;
+ }
+
+ .finish_intro {
+  width: 10vw;
+  border-style: none;
+  font-family: "Gen-M";
+  font-size: 3.2vw;
+  letter-spacing: 0.04em;
+  font-weight: 900;
+  display: none;
+  border-radius: 6vw;
+  padding: 0.4vh 2vw 0.4vh 2vw;
+  background-color: #FFFFFF;
+  color: #4C6046;
+  position: absolute;
+  top: 74vh;
+  left: 39vw;
+  z-index: 12;
+  text-align: center;
+}
+
+
