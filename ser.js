@@ -55,7 +55,8 @@ app.get('/register', (req, res) => {
           letter_for_kid:"",
           stage: 0,
           score: 0,
-          dino: 0
+          dino: 0,
+          money: 0
         }
         var reff = database.ref('account/'+req.query.id);
         reff.set(input);
@@ -597,8 +598,22 @@ socket.on('give_me_letter', function(data){
       io.sockets.emit('game_over_toClient',{ID:data.ID});
     })
 
+    socket.on('update_reward', function(data){
+      console.log("add_score_server");
+      io.sockets.emit('update_my_reward',{ID:data.ID,Score:data.Score,Money:data.Money});
+    })
 
+    socket.on('purchase_some_item', function(data){
+      console.log("purchase some item");      
+      io.sockets.emit('purchase_item',{ID:data.ID,Money:data.Money});
+    })
 
+    socket.on('update_money_score', function(data){              
+      var reff = database.ref('account/' + data.ID +'/money/');
+      reff.set(data.Money);
+      reff = database.ref('account/' + data.ID +'/score/');
+      reff.set(data.Score);        
+    })
     /***  進化之後改變dino ***/
 
     socket.on('dino_change', function(data){
@@ -614,7 +629,7 @@ socket.on('give_me_letter', function(data){
           nickname: db.val().nickname,
           letter: db.val().letter,
           letter_for_kid: db.val().letter_for_kid,
-          score: 0,
+          score: db.val().score-100,
           stage: db.val().stage,
           money: db.val().money,
           dino: data.dino
@@ -630,14 +645,11 @@ socket.on('give_me_letter', function(data){
       });
     })
 
-
-/*
-    socket.on('give_me_money', function(data){
-      database.ref('account/'+data.ID+'/score').once('value',db=>{
-        var s = db.val();
-        socket.emit('give_you_score', {ID:data.ID, Score:s});
+    socket.on('give_me_money', function(data){      
+      database.ref('account/'+data.ID+'/money').once('value',db=>{
+        var s = db.val();        
+        socket.emit('give_you_money', {ID:data.ID, Money:s});        
       });
     })
-*/
     
 })

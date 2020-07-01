@@ -4,17 +4,18 @@ var duration = countdown_duration;
 var remain_time = 0;
 var ans_isclear = 0;
 var go_in = true;
-var backPack_button = true;
-var shop_button = true;
+var backpack_or_shop = true;
 var refreshInterval;
 var ans1_1 = false, ans1_2 = false, ans1_3 = false, ans1_4 = false, ans1_5 = false;
 var ans2_1 = false, ans2_2 = false, ans2_3 = false, ans2_4 = false, ans2_5 = false;
 var hat_01 = 0,hat_02 = 0;hat_03 = 0,hat_04 = 0;
+var special_01 = 0,special_02 = 0;
+var scene_01 = 0;
 var backpack_01 = true;
 var childIsReady = 0,parentIsReady = 0;
 var wip = "wss://" + window.location.host;
 var socket = io(wip);
-
+var item_price;
 
 
 // for debugging
@@ -51,6 +52,7 @@ $('.right_selection').click(function(){
     $('#button_01').fadeIn();
     $('#button_02').fadeOut();
     $('#button_03').fadeOut();
+    $('#ass_dinasour').fadeOut();
     $('#timer').fadeOut();    
 });
 
@@ -114,7 +116,9 @@ $('#button_02').click(function(){
 });
 
 /* 按鈕-遊戲關卡1開始按鍵*/ 
-function start_game_animation(){   
+function start_game_animation(){ 
+    clearInterval(refreshInterval);
+    duration = 180;   
     $('#start_button').fadeOut();
     $('#button_03').fadeIn();    
     $('#timer').fadeIn();
@@ -242,8 +246,10 @@ function ending_function(){
     ans1_1 = false, ans1_2 = false, ans1_3 = false, ans1_4 = false, ans1_5 = false;
     ans2_1 = false, ans2_2 = false, ans2_3 = false, ans2_4 = false, ans2_5 = false;
     childIsReady = 0;
-    parentIsReady = 0;
-    clearInterval(refreshInterval);
+    parentIsReady = 0;    
+    //update exp value
+    //因爲父母和孩子會emit兩次這個，所以score/2
+    socket.emit('update_reward', {ID:getCookie('ID'), Score:40/2, Money:1000});
     $('#timer').fadeOut();
     $('#time').fadeOut();
     $('information_box').fadeOut();
@@ -275,8 +281,7 @@ $('#ok_button').click(function(){
     $('#share_button').fadeOut();
     $('#text_01').fadeOut();
     $('#text_02').fadeOut();
-    $('#text_03').fadeOut();
-    //$('#text_04').fadeOut();
+    $('#text_03').fadeOut();    
     $('#ajax-output1').hide();  // modify
     $('#ajax-output2').hide();
     $('#ajax-output3').hide();
@@ -700,6 +705,23 @@ $('#price_04').click(function(){
     $('#close_button').fadeIn();
 });
 
+$('#price_05').click(function(){        
+    $('#purchase_page_05').fadeIn();
+    $('#purchase_button').fadeIn();
+    $('#close_button').fadeIn();
+});
+
+$('#price_06').click(function(){        
+    $('#purchase_page_06').fadeIn();
+    $('#purchase_button').fadeIn();
+    $('#close_button').fadeIn();
+});
+
+$('#price_07').click(function(){        
+    $('#purchase_page_07').fadeIn();
+    $('#purchase_button').fadeIn();
+    $('#close_button').fadeIn();
+});
 $('#close_button').click(function(){    
     $('#purchase_page_01').fadeOut();
     $('#purchase_page_02').fadeOut();
@@ -709,35 +731,62 @@ $('#close_button').click(function(){
     $('#close_button').fadeOut();        
 });
 
+
 $('#shop').click(function(){
-    if(shop_button){
+    if(backpack_or_shop){
+        //default setting
+        scene_01 = 0;
+        $('#ass_dinasour').fadeOut();
+        $('#dinasour').fadeOut();
+        $('#dinosaur_model').fadeIn();  
         $('shop').fadeIn(500);
+        //menu update
+        $('#shop_menu_item_tab').fadeIn();
+        $('#shop_menu_scene_tab').fadeOut();        
+        $('#shop_menu_special_tab').fadeOut();
+
+        //item list update
+        $('item_equipment').fadeIn();
+        $('item_scene').fadeOut();
+        $('item_special').fadeOut();
+        //preview
+        $('preview_hat').fadeIn();
+        $('preview_special').fadeOut();
+        $('preview_scene').fadeOut();
+        
         swap_out();
-        shop_button = false;
+        backpack_or_shop = false;      
     }         
 });
 
 $('#shop_closeButton').click(function(){
-    if(!shop_button){   
-        $('shop').fadeOut(500);
+    if(!backpack_or_shop){   
+        $('#ass_dinasour').fadeIn();
+        $('#dinasour').fadeIn(); 
+        $('shop').fadeOut(500);        
+        $('#tree').fadeOut();        
         swap_in();
-        shop_button = true;
+        backpack_or_shop = true;        
     }        
 });
 
 $('#backpack').click(function(){
-    if(backPack_button){
+    if(backpack_or_shop){
+        $('#ass_dinasour').fadeOut(500);
+        $('#dinasour').fadeOut();
         $('backpack').fadeIn(500);
         swap_out();
-        backPack_button = false;
+        backpack_or_shop = false;        
     }    
 });
 
 $('#backpack_closeButton').click(function(){
-    if(!backPack_button){    
+    if(!backpack_or_shop){    
+        $('#ass_dinasour').fadeIn();
+        $('#dinasour').fadeIn();
         $('backpack').fadeOut(500);
         swap_in();
-        backPack_button = true;
+        backpack_or_shop = true;        
     }
 });
 
@@ -755,3 +804,118 @@ $('#backpack_01').click(function(){
     }
 });
 
+$('#lotus_leaf').click(function(){      
+    if(!special_01){
+        $('#dinosaur_model_lotus_leaf').fadeIn();
+        $('#thunder_cloud_model').fadeOut();
+        //special_01 = 1;
+    }
+    // else{
+    //     $('#dinosaur_model_lotus_leaf').fadeOut();
+    //     $('#thunder_cloud_model').fadeIn();
+    //     special_01 = 0;
+    // }    
+    
+});
+
+$('#thunder_cloud').click(function(){
+    if(!special_02){
+        $('#dinosaur_model').fadeIn();    
+        $('#dinosaur_model_lotus_leaf').fadeOut();
+        $('#thunder_cloud_model').fadeIn();    
+        //special_02 = 1;
+    }
+    // else{
+    //     $('#dinosaur_model').fadeOut();    
+    //     $('#dinosaur_model_lotus_leaf').fadeIn();
+    //     $('#thunder_cloud_model').fadeOut();    
+    //     special_02 = 0;
+    // }
+    
+});
+
+$('#NCKU_tree').click(function(){
+    if(!scene_01){
+        $('#tree').fadeIn();
+        scene_01 = 1;        
+    }
+    else{
+        $('#tree').fadeOut();
+        scene_01 = 0;        
+    }
+        
+});
+
+$('#shop_menu_item').click(function(){    
+    console.log("This is shop_menu_item_tab");
+    //menu update    
+    $('#shop_menu_item_tab').fadeIn();
+    $('#shop_menu_scene_tab').fadeOut(); 
+    $('#shop_menu_special_tab').fadeOut();
+    //item list update
+    $('item_equipment').fadeIn();
+    $('item_scene').fadeOut();
+    $('item_special').fadeOut();    
+    //preview
+    $('preview_hat').fadeIn();
+    $('preview_special').fadeOut();
+    $('preview_scene').fadeOut();
+});
+
+$('#shop_menu_scene').click(function(){    
+    console.log("This is shop_menu_scene_tab");        
+    //menu update
+    $('#shop_menu_item_tab').fadeOut();
+    $('#shop_menu_scene_tab').fadeIn();    
+    $('#shop_menu_special_tab').fadeOut();    
+    //item list update
+    $('item_equipment').fadeOut();
+    $('item_scene').fadeIn();
+    $('item_special').fadeOut();
+    //preview
+    $('preview_hat').fadeOut();
+    $('preview_special').fadeOut();
+    $('preview_scene').fadeIn();
+});
+
+$('#shop_menu_special').click(function(){    
+    console.log("This is shop_menu_special_tab");        
+    //menu update
+    $('#shop_menu_item_tab').fadeOut();
+    $('#shop_menu_scene_tab').fadeOut(); 
+    $('#shop_menu_special_tab').fadeIn();
+    //item list update
+    $('item_equipment').fadeOut();
+    $('item_scene').fadeOut();
+    $('item_special').fadeIn();
+    //preview
+    $('preview_hat').fadeOut();
+    $('preview_special').fadeIn();
+    $('preview_scene').fadeOut();
+});
+
+$('#price_01').click(function(){    
+    item_price = 1000;    
+});
+$('#price_02').click(function(){    
+    item_price = 1200;    
+});
+$('#price_03').click(function(){    
+    item_price = 1500;    
+});
+$('#price_04').click(function(){    
+    item_price = 2500;    
+});
+$('#price_05').click(function(){    
+    item_price = 1500;    
+});
+$('#price_06').click(function(){    
+    item_price = 1500;    
+});
+$('#price_07').click(function(){
+    item_price = 3000;    
+});
+
+$('#purchase_button').click(function(){        
+    socket.emit('purchase_some_item', {ID:getCookie('ID'), Money:item_price});        
+});

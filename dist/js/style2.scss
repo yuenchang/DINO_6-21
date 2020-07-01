@@ -16,6 +16,26 @@ shop {
     display:none;
 }
 
+item_equipment {
+    display: 1;
+}
+
+item_scene {
+    display: none;
+}
+
+item_special {
+    display: none;
+}
+
+preview_hat {
+    display: 1;
+}
+
+preview_special {
+    display: none;
+}
+
 // 商店
 #shop {
     @extend position;
@@ -44,7 +64,7 @@ shop {
 #shop_menu {
     @extend position;
     @extend opacity_zero;
-    @include coordinate_information(39vw, 28vh, 38vw);
+    @include coordinate_information(39vw, 28vh, 38vw);    
     cursor: pointer;
 }
 
@@ -52,6 +72,7 @@ shop {
     @extend position;
     @extend opacity_zero;
     @include coordinate_information(4.5vw, 31.5vh, 40.5vw);
+    z-index: 2;
     cursor: pointer;   
 }
 
@@ -59,6 +80,7 @@ shop {
     @extend position;
     @extend opacity_zero;
     @include coordinate_information(4.5vw, 31.5vh, 50.5vw);    
+    z-index: 2;
     cursor: pointer;
 }
 
@@ -66,6 +88,7 @@ shop {
     @extend position;
     @extend opacity_zero;
     @include coordinate_information(4.3vw, 31.5vh, 60.4vw);    
+    z-index: 2;
     cursor: pointer;
 }
 
@@ -73,6 +96,30 @@ shop {
     @extend position;
     @extend opacity_zero;
     @include coordinate_information(4.5vw, 31.5vh, 70vw);    
+    z-index: 2;
+    cursor: pointer;
+}
+
+#shop_menu_item_tab {
+    @extend position;    
+    @include coordinate_information(4.5vw, 31.5vh, 40.5vw);    
+    z-index: 2;    
+    cursor: pointer;
+}
+
+#shop_menu_special_tab {
+    @extend position;    
+    @include coordinate_information(4.3vw, 31.5vh, 60.4vw);        
+    display: none;
+    z-index: 2;  
+    cursor: pointer;
+}
+
+#shop_menu_scene_tab {
+    @extend position;    
+    @include coordinate_information(4.5vw, 31.5vh, 50.5vw);       
+    display: none;
+    z-index: 2;  
     cursor: pointer;
 }
 
@@ -80,6 +127,28 @@ shop {
     @extend position;
     @extend opacity_zero;
     @include coordinate_information(65vw, 71vh, 23vw); 
+    z-index: 2;
+}
+
+#dinosaur_model_special {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(65vw, 71vh, 23vw); 
+    z-index: 2;
+}
+
+#dinosaur_model_scene {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(65vw, 71vh, 23vw); 
+    z-index: 2;
+}
+
+#dinosaur_model_lotus_leaf {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(65vw, 66vh, 23vw);
+    display: none; 
     z-index: 2;
 }
 
@@ -165,6 +234,20 @@ shop {
     cursor: pointer;
 }
 
+#lotus_leaf {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(10.5vw, 40vh, 26vw);
+    cursor: pointer;
+}
+
+#thunder_cloud {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(15vw, 40.7vh, 43vw);
+    cursor: pointer;
+}
+
 #price_01 {
     @extend position;
     @extend opacity_zero;
@@ -190,6 +273,27 @@ shop {
     @extend position;
     @extend opacity_zero;
     @include coordinate_information(13vw, 57vh, 24vw);
+    cursor: pointer;
+}
+
+#price_05 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(13vw, 46vh, 24vw);
+    cursor: pointer;
+}
+
+#price_06 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(13vw, 46vh, 44vw);
+    cursor: pointer;
+}
+
+#price_07 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(13vw, 46vh, 24vw);
     cursor: pointer;
 }
 
@@ -237,8 +341,8 @@ shop {
     @extend position;
     @extend opacity_zero;
     @include coordinate_information(15vw, 57vh, 43vw);
-    cursor: pointer;
-    z-index: 1; //remember to delete this
+    cursor: pointer;    
+    z-index: 1; 
     display: none;
 }
 
@@ -261,7 +365,7 @@ shop {
 #purchase_page_02 {
     @extend position;
     @extend opacity_zero;    
-    @include coordinate_information(60vw, 37vh, 20vw);    
+    @include coordinate_information(60vw, 37vh, 20vw);   
     display: none;
 }
 
@@ -276,6 +380,35 @@ shop {
     @extend position;
     @extend opacity_zero;    
     @include coordinate_information(60vw, 37vh, 20vw);    
+    display: none;
+}
+
+#purchase_page_05 {
+    @extend position;
+    @extend opacity_zero;    
+    @include coordinate_information(60vw, 37vh, 20vw);       
+    display: none;
+}
+
+#purchase_page_06 {
+    @extend position;
+    @extend opacity_zero;    
+    @include coordinate_information(60vw, 37vh, 20vw);    
+    display: none;
+}
+
+#purchase_page_07 {
+    @extend position;
+    @extend opacity_zero;    
+    @include coordinate_information(60vw, 37vh, 20vw);    
+    display: none;
+}
+
+#thunder_cloud_model {
+    @extend position;
+    @extend opacity_zero;    
+    @include coordinate_information(55vw, 57vh, 23vw);    
+    z-index: 0;
     display: none;
 }
 
@@ -379,4 +512,25 @@ backpack {
     @include coordinate_information(16vw, 69.7vh, 27.1vw);
     z-index: 1;
     display: none;  
+}
+
+#tree {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(63vw, 19vh, 41vw);
+    z-index: 0;
+    display: none;
+}
+
+#ness_monster {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(24vw, 35vh, 68vw);
+    z-index: 0;
+}
+
+#NCKU_tree {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(16vw, 41vh, 23vw);    
 }

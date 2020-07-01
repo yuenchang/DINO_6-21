@@ -3,10 +3,10 @@ var socket = io(wip);
 var childIsReady2 = 0,parentIsReady2 = 0;
 var page = 0;
 var can_upgrade = false;
-$(document).ready(function () {
-  /* 確認恐龍是哪隻 */
-  socket.emit('give_me_dino', {ID: getCookie('ID')});
+var score,money,gameLevel;
 
+$(document).ready(function () {
+ 
   $('#letter').html("\n  謝謝" + getCookie('nickname') + "\n\n  因為...\n\n  這讓我覺得...");
   var id = getCookie('ID'); 
   if(id==null)
@@ -18,6 +18,10 @@ $(document).ready(function () {
   socket.emit('give_me_score', {ID: getCookie('ID')});
   socket.emit('give_me_stage', {ID: getCookie('ID')});
   socket.emit('give_me_letter_k', {ID: getCookie('ID')});
+
+   /* 確認恐龍是哪隻 */
+   socket.emit('give_me_dino', {ID: getCookie('ID')});
+
   /* 信件夾click設定 */    
   $('#sysinfo').click( function(){
     $('#container').attr("src", "./assests/sysinfo.svg");
@@ -32,10 +36,12 @@ $(document).ready(function () {
   $('#nortification').click( function(){
     $('#black').fadeIn(400);
     $('#info').fadeIn(400);
+    $('#ass_dinasour').fadeOut();  
     socket.emit('give_me_letter_k', {ID: getCookie('ID')});
   });
 
   $('#letter_p_close').click( function(){
+    $('#ass_dinasour').fadeIn();
     $('#black').fadeOut(400);
     $('#info').fadeOut(400);
   });
@@ -214,7 +220,11 @@ function go_to_letter(){
   $('#cover').css('display','none'); //關閉遮罩層
 
   //屁頭上升
+  $('#ass_dinasour').fadeTo('slow','0');
   $('#ass_dinasour').animate({top:"-=23vh" },800);
+  $('#ass_dinasour_2').fadeIn();
+  $('#ass_dinasour_2').css('z-index','0');    
+  $('#ass_dinasour2').animate({top:"-=23vh" },800);
 }
 
 function letter_info(){
@@ -243,6 +253,7 @@ function letter_back(){
   $('#mission_logo').animate({left:"+=200vw" },1500);
   $('#mission_text').animate({left:"+=200vw" },1500);
   $('#ass_dinasour').animate({top:"+=23vh" },800);
+  $('#ass_dinasour_2').fadeOut();    
 }
 
 function send_letter(){
@@ -323,18 +334,22 @@ socket.on('give_you_letter_k', function(data){
 
 
 socket.on('give_you_money', function(data){  
-  if(data.ID == getCookie('ID')){
+  if(data.ID == getCookie('ID')){    
+    money = data.Money;
+    document.getElementById('money').innerHTML = money;    
   }
 })
 
 socket.on('give_you_score', function(data){  
   if(data.ID == getCookie('ID')){
-    var em = (data.Score / 100 )*4 + "em";
+    score = data.Score;    
+    var em = (score / 100 )*3.7 + "em";
     console.log(em);
     $('#EXP').css({"width":em});
 
+
     /* 第一次進化 */
-    if(data.Score == 100)
+    if(data.Score >= 100)
     {
       $('.upgrage_info').css('display','block');
       can_upgrade = true;
@@ -356,28 +371,28 @@ socket.on('give_you_stage', function(data){
   }
 })
 
-socket.on('give_you_dino', function(data){
-  if(data.ID == getCookie('ID')){
-    var dino = data.Dino;
+// socket.on('give_you_dino', function(data){
+//   if(data.ID == getCookie('ID')){
+//     var dino = data.Dino;
   
-    if(dino == 0)
-    {
-      $('#ass_dinasour').attr("src", "./assests/屁頭龍.png");
-    }
-    else if(dino == 1)
-    {
-      $('#ass_dinasour').attr("src", "./upgrade/疾風龍 (1).svg");
-    }
-    else if(dino == 2)
-    {
-      $('#ass_dinasour').attr("src", "./upgrade/Group 330.svg");
-    }
-    else if(dino == 3)
-    {
-      $('#ass_dinasour').attr("src", "./upgrade/天使龍 (1).svg");
-    }
-  }
-})
+//     if(dino == 0)
+//     {
+//       $('#ass_dinasour').attr("src", "./assests/屁頭龍.png");
+//     }
+//     else if(dino == 1)
+//     {
+//       $('#ass_dinasour').attr("src", "./upgrade/疾風龍 (1).svg");
+//     }
+//     else if(dino == 2)
+//     {
+//       $('#ass_dinasour').attr("src", "./upgrade/Group 330.svg");
+//     }
+//     else if(dino == 3)
+//     {
+//       $('#ass_dinasour').attr("src", "./upgrade/天使龍 (1).svg");
+//     }
+//   }
+// })
 
 socket.on('fuckyou', function(data){
   if(data.ID == getCookie('ID')){
@@ -385,6 +400,35 @@ socket.on('fuckyou', function(data){
   }
 })
 
+//遊戲結束加分（經驗值和金錢）
+socket.on('update_my_reward', function(data){
+  if(data.ID == getCookie('ID')){
+    //update exp score 
+    score = (score + data.Score) % 100;
+    var em = (score / 100 )*3.7 + "em";
+    console.log(em);
+    $('#EXP').css({"width":em}); 
+    //update gold
+    money += data.Money/2;
+    document.getElementById('money').innerHTML = money;
+    socket.emit('update_money_score', {ID: data.ID,Money: money,Score: score});
+  }
+})
+
+//購買商品　扣除金額
+socket.on('purchase_item', function(data){
+  if(data.ID == getCookie('ID')){    
+    if((money - data.Money) >= 0){
+      console.log("扣除金額: " +data.Money);
+      money = money - data.Money;
+    }      
+    else{      
+      console.log("沒錢了啦! >.<");
+    }
+    document.getElementById('money').innerHTML = money;
+    socket.emit('update_money_score', {ID: data.ID,Money: money,Score: score});
+  }
+})
 
 function expand(e){
   if( $(e.target).hasClass('text') ){/***************************** */
@@ -507,4 +551,48 @@ window.setInterval(function () {
     socket.emit('c_bothReady',{ID:getCookie('ID')});    
   }
 }, 100);
+
+
+//檢查目前應該是哪一種狀態的屁頭龍
+socket.on('give_you_dino', function(data){
+  if(data.ID == getCookie('ID')){
+    var dino = data.Dino;    
+    if(dino == 0)
+    {
+      $('#ass_dinasour').attr("src", "./assests/屁頭龍.svg");
+      $('#ass_dinasour_2').attr("src", "./assests/屁頭龍.svg");
+      $('#dinosaur_model').attr("src", "./assests/屁頭龍.svg");
+      $('#dinosaur_model_special').attr("src", "./assests/屁頭龍.svg");
+      $('#dinosaur_model_scene').attr("src", "./assests/屁頭龍.svg");      
+      $('#dinosaur_backpack').attr("src", "./assests/屁頭龍.svg");            
+    }
+    else if(dino == 1)
+    {      
+      $('#ass_dinasour').attr("src", "./assests/疾風龍.svg");
+      $('#ass_dinasour_2').attr("src", "./assests/疾風龍.svg");
+      $('#dinosaur_model').attr("src", "./assests/疾風龍.svg");
+      $('#dinosaur_model_special').attr("src", "./assests/疾風龍.svg");
+      $('#dinosaur_model_scene').attr("src", "./assests/疾風龍.svg");      
+      $('#dinosaur_backpack').attr("src", "./assests/疾風龍.svg");      
+    }
+    else if(dino == 2)
+    {
+      $('#ass_dinasour').attr("src", "./assests/火山龍.svg");
+      $('#ass_dinasour_2').attr("src", "./assests/火山龍.svg");
+      $('#dinosaur_model').attr("src", "./assests/火山龍.svg");
+      $('#dinosaur_model_special').attr("src", "./assests/火山龍.svg");
+      $('#dinosaur_model_scene').attr("src", "./assests/火山龍.svg");
+      $('#dinosaur_backpack').attr("src", "./assests/火山龍.svg");      
+    }
+    else if(dino == 3)
+    {      
+      $('#ass_dinasour').attr("src", "./assests/天使龍.svg");
+      $('#ass_dinasour_2').attr("src", "./assests/天使龍.svg");
+      $('#dinosaur_model').attr("src", "./assests/天使龍.svg");
+      $('#dinosaur_model_special').attr("src", "./assests/天使龍.svg");
+      $('#dinosaur_model_scene').attr("src", "./assests/天使龍.svg");
+      $('#dinosaur_backpack').attr("src", "./assests/天使龍.svg");      
+    }
+  }
+})
 

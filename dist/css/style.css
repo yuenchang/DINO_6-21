@@ -59,10 +59,12 @@ body {
 
 .left_selection{
     position: absolute;    
+    z-index: 3;
 }
 
 .right_selection{
     position: absolute;    
+    z-index: 3;
 }
 
 navigation_bar {    
@@ -104,13 +106,13 @@ money_group{
 }
 
 #money_value{
-  position: absolute;
-  font-family: GenJyuuGothicM;
-  font-size: 3em;
-  color: #416545;
-  top: -0.2vh;
-  left: 26vw;
-}
+    position: absolute;
+    font-family: GenJyuuGothicM;
+    font-size: 3em;
+    color: #416545;
+    top: -0.2vh;
+    left: 16.8vw;
+  }
 
 #nortification{
     left: 66vw;
@@ -136,7 +138,16 @@ money_group{
 #ass_dinasour{
     width: 63vw;
     left: 23vw;
-    top: 40vh;    
+    top: 40vh;
+    z-index: 3;    
+}
+
+#ass_dinasour_2{
+    width: 63vw;
+    left: 23vw;
+    top: 40vh; 
+    display: none;   
+    z-index: 3;
 }
 
 #dinasour{

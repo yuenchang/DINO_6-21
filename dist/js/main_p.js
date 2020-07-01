@@ -2,6 +2,7 @@ var wip = "wss://" + window.location.host;
 var socket = io(wip);
 var childIsReady1 = 0,parentIsReady1 = 0;
 var page = 0;
+var score_p,money_p,gameLevel_p;
 $(document).ready(function() {
   
 
@@ -9,6 +10,8 @@ $(document).ready(function() {
   var id = getCookie('ID'); 
   if(id==null)
     window.location.href='signin.html';
+  $('#kid_name').html(id);
+  socket.emit('give_me_money', {ID: getCookie('ID')});
   socket.emit('give_me_letter', {ID: getCookie('ID')});
   socket.emit('give_me_score', {ID: getCookie('ID')});
   socket.emit('give_me_stage', {ID: getCookie('ID')});
@@ -278,7 +281,33 @@ socket.on('give_you_stage', function(data){
   }
 })
 
+ //遊戲結束加分（經驗值和金錢）
+ socket.on('update_my_reward', function(data){
+  if(data.ID == getCookie('ID')){
+    //update exp score
+    p_score = (p_score + data.Score) % 100;    
+    var em = (p_score / 100 )*3.7 + "em";
+    console.log(em);
+    $('#EXP').css({"width":em}); 
+    //update gold
+    money_p += data.Money/2;
+    document.getElementById('money').innerHTML = money_p; 
+  }
+})
 
+//購買商品　扣除金額
+socket.on('purchase_item', function(data){
+  if(data.ID == getCookie('ID')){    
+    if((money_p - data.Money) >= 0){
+      console.log("扣除金額: " +data.Money);
+      money_p = money_p - data.Money;
+    }      
+    else{      
+      console.log("沒錢了啦! >.<");
+    }
+    document.getElementById('money').innerHTML = money_p; 
+  }
+})
 
 /* 返回主要畫面 */
 function letter_back(){
@@ -301,7 +330,8 @@ $('#start_button').click(function(){
 
 socket.on('child_is_ready', function(data){
   if(data.ID == getCookie('ID')){
-    childIsReady1 = 1;                         
+    childIsReady1 = 1;
+    gameLevel_p = data.GameLevel;                    
   }
 })
 

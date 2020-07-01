@@ -1,10 +1,25 @@
-position, #shop, #shop_stall, #shop_closeButton, #shop_logo, #shop_menu, #shop_menu_item, #shop_menu_scene, #shop_menu_special, #shop_menu_reward, #dinosaur_model, #item_01, #item_02, #item_03, #item_04, #item_05, #item_06, #item_07, #item_08, #item_09, #hat_01, #hat_02, #hat_03, #hat_04, #price_01, #price_02, #price_03, #price_04, #hat_model_01, #hat_model_02, #hat_model_03, #hat_model_04, #hat_model_04_02, #purchase_button, #close_button, #purchase_page_01, #purchase_page_02, #purchase_page_03, #purchase_page_04, #backpack, #big_backpack, #backpack_closeButton, #dinosaur_backpack, #backpack_01, #backpack_02, #backpack_03, #backpack_04, #backpack_05, #backpack_06, #backpack_07, #backpack_08, #bp_01, #bp_01_02 {
+position, #shop, #shop_stall, #shop_closeButton, #shop_logo, #shop_menu, #shop_menu_item, #shop_menu_scene, #shop_menu_special, #shop_menu_reward, #shop_menu_item_tab, #shop_menu_special_tab, #shop_menu_scene_tab, #dinosaur_model, #dinosaur_model_special, #dinosaur_model_scene, #dinosaur_model_lotus_leaf, #item_01, #item_02, #item_03, #item_04, #item_05, #item_06, #item_07, #item_08, #item_09, #hat_01, #hat_02, #hat_03, #hat_04, #lotus_leaf, #thunder_cloud, #price_01, #price_02, #price_03, #price_04, #price_05, #price_06, #price_07, #hat_model_01, #hat_model_02, #hat_model_03, #hat_model_04, #hat_model_04_02, #purchase_button, #close_button, #purchase_page_01, #purchase_page_02, #purchase_page_03, #purchase_page_04, #purchase_page_05, #purchase_page_06, #purchase_page_07, #thunder_cloud_model, #backpack, #big_backpack, #backpack_closeButton, #dinosaur_backpack, #backpack_01, #backpack_02, #backpack_03, #backpack_04, #backpack_05, #backpack_06, #backpack_07, #backpack_08, #bp_01, #bp_01_02, #tree, #ness_monster, #NCKU_tree {
   position: absolute; }
 
-opacity_zero, #shop, #shop_stall, #shop_closeButton, #shop_logo, #shop_menu, #shop_menu_item, #shop_menu_scene, #shop_menu_special, #shop_menu_reward, #dinosaur_model, #item_01, #item_02, #item_03, #item_04, #item_05, #item_06, #item_07, #item_08, #item_09, #hat_01, #hat_02, #hat_03, #hat_04, #price_01, #price_02, #price_03, #price_04, #hat_model_01, #hat_model_02, #hat_model_03, #hat_model_04, #hat_model_04_02, #purchase_button, #close_button, #purchase_page_01, #purchase_page_02, #purchase_page_03, #purchase_page_04, #backpack, #big_backpack, #backpack_closeButton, #dinosaur_backpack, #backpack_01, #backpack_02, #backpack_03, #backpack_04, #backpack_05, #backpack_06, #backpack_07, #backpack_08, #bp_01, #bp_01_02 {
+opacity_zero, #shop, #shop_stall, #shop_closeButton, #shop_logo, #shop_menu, #shop_menu_item, #shop_menu_scene, #shop_menu_special, #shop_menu_reward, #dinosaur_model, #dinosaur_model_special, #dinosaur_model_scene, #dinosaur_model_lotus_leaf, #item_01, #item_02, #item_03, #item_04, #item_05, #item_06, #item_07, #item_08, #item_09, #hat_01, #hat_02, #hat_03, #hat_04, #lotus_leaf, #thunder_cloud, #price_01, #price_02, #price_03, #price_04, #price_05, #price_06, #price_07, #hat_model_01, #hat_model_02, #hat_model_03, #hat_model_04, #hat_model_04_02, #purchase_button, #close_button, #purchase_page_01, #purchase_page_02, #purchase_page_03, #purchase_page_04, #purchase_page_05, #purchase_page_06, #purchase_page_07, #thunder_cloud_model, #backpack, #big_backpack, #backpack_closeButton, #dinosaur_backpack, #backpack_01, #backpack_02, #backpack_03, #backpack_04, #backpack_05, #backpack_06, #backpack_07, #backpack_08, #bp_01, #bp_01_02, #tree, #ness_monster, #NCKU_tree {
   opacity: 1; }
 
 shop {
+  display: none; }
+
+item_equipment {
+  display: 1; }
+
+item_scene {
+  display: none; }
+
+item_special {
+  display: none; }
+
+preview_hat {
+  display: 1; }
+
+preview_special {
   display: none; }
 
 #shop {
@@ -37,30 +52,76 @@ shop {
   width: 4.5vw;
   top: 31.5vh;
   left: 40.5vw;
+  z-index: 2;
   cursor: pointer; }
 
 #shop_menu_scene {
   width: 4.5vw;
   top: 31.5vh;
   left: 50.5vw;
+  z-index: 2;
   cursor: pointer; }
 
 #shop_menu_special {
   width: 4.3vw;
   top: 31.5vh;
   left: 60.4vw;
+  z-index: 2;
   cursor: pointer; }
 
 #shop_menu_reward {
   width: 4.5vw;
   top: 31.5vh;
   left: 70vw;
+  z-index: 2;
+  cursor: pointer; }
+
+#shop_menu_item_tab {
+  width: 4.5vw;
+  top: 31.5vh;
+  left: 40.5vw;
+  z-index: 2;
+  cursor: pointer; }
+
+#shop_menu_special_tab {
+  width: 4.3vw;
+  top: 31.5vh;
+  left: 60.4vw;
+  display: none;
+  z-index: 2;
+  cursor: pointer; }
+
+#shop_menu_scene_tab {
+  width: 4.5vw;
+  top: 31.5vh;
+  left: 50.5vw;
+  display: none;
+  z-index: 2;
   cursor: pointer; }
 
 #dinosaur_model {
   width: 65vw;
   top: 71vh;
   left: 23vw;
+  z-index: 2; }
+
+#dinosaur_model_special {
+  width: 65vw;
+  top: 71vh;
+  left: 23vw;
+  z-index: 2; }
+
+#dinosaur_model_scene {
+  width: 65vw;
+  top: 71vh;
+  left: 23vw;
+  z-index: 2; }
+
+#dinosaur_model_lotus_leaf {
+  width: 65vw;
+  top: 66vh;
+  left: 23vw;
+  display: none;
   z-index: 2; }
 
 #item_01 {
@@ -132,6 +193,18 @@ shop {
   left: 23.2vw;
   cursor: pointer; }
 
+#lotus_leaf {
+  width: 10.5vw;
+  top: 40vh;
+  left: 26vw;
+  cursor: pointer; }
+
+#thunder_cloud {
+  width: 15vw;
+  top: 40.7vh;
+  left: 43vw;
+  cursor: pointer; }
+
 #price_01 {
   width: 13vw;
   top: 46vh;
@@ -153,6 +226,24 @@ shop {
 #price_04 {
   width: 13vw;
   top: 57vh;
+  left: 24vw;
+  cursor: pointer; }
+
+#price_05 {
+  width: 13vw;
+  top: 46vh;
+  left: 24vw;
+  cursor: pointer; }
+
+#price_06 {
+  width: 13vw;
+  top: 46vh;
+  left: 44vw;
+  cursor: pointer; }
+
+#price_07 {
+  width: 13vw;
+  top: 46vh;
   left: 24vw;
   cursor: pointer; }
 
@@ -229,6 +320,31 @@ shop {
   width: 60vw;
   top: 37vh;
   left: 20vw;
+  display: none; }
+
+#purchase_page_05 {
+  width: 60vw;
+  top: 37vh;
+  left: 20vw;
+  display: none; }
+
+#purchase_page_06 {
+  width: 60vw;
+  top: 37vh;
+  left: 20vw;
+  display: none; }
+
+#purchase_page_07 {
+  width: 60vw;
+  top: 37vh;
+  left: 20vw;
+  display: none; }
+
+#thunder_cloud_model {
+  width: 55vw;
+  top: 57vh;
+  left: 23vw;
+  z-index: 0;
   display: none; }
 
 backpack {
@@ -316,3 +432,21 @@ backpack {
   left: 27.1vw;
   z-index: 1;
   display: none; }
+
+#tree {
+  width: 63vw;
+  top: 19vh;
+  left: 41vw;
+  z-index: 0;
+  display: none; }
+
+#ness_monster {
+  width: 24vw;
+  top: 35vh;
+  left: 68vw;
+  z-index: 0; }
+
+#NCKU_tree {
+  width: 16vw;
+  top: 41vh;
+  left: 23vw; }
