@@ -384,3 +384,20 @@ function checkOverlap(spriteA, spriteB) {
       return Phaser.Rectangle.intersects(boundsA, boundsB);
 
 }
+
+const bye = document.getElementById( "exit" );
+bye.addEventListener( "click", leave);
+
+function leave(){
+  if(getCookie('who')=="parent"){
+    location.href = "main_p.html";
+  }else{
+    location.href = "main.html";
+  }   
+}
+
+function getCookie(name) {
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length == 2) return parts.pop().split(";").shift();
+}

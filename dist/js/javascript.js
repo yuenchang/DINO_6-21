@@ -16,7 +16,8 @@ var childIsReady = 0,parentIsReady = 0;
 var wip = "wss://" + window.location.host;
 var socket = io(wip);
 var item_price;
-
+var item_id;
+var hat_id = 0;
 
 // for debugging
 document.addEventListener('click', function(e){
@@ -722,14 +723,30 @@ $('#price_07').click(function(){
     $('#purchase_button').fadeIn();
     $('#close_button').fadeIn();
 });
+$('#price_08').click(function(){        
+    $('#purchase_page_08').fadeIn();
+    $('#purchase_button').fadeIn();
+    $('#close_button').fadeIn();
+});
+$('#price_09').click(function(){        
+    $('#purchase_page_09').fadeIn();
+    $('#purchase_button').fadeIn();
+    $('#close_button').fadeIn();
+});
 $('#close_button').click(function(){    
     $('#purchase_page_01').fadeOut();
     $('#purchase_page_02').fadeOut();
     $('#purchase_page_03').fadeOut();
     $('#purchase_page_04').fadeOut();
+    $('#purchase_page_05').fadeOut();
+    $('#purchase_page_06').fadeOut();
+    $('#purchase_page_07').fadeOut();    
+    $('#purchase_page_08').fadeOut();    
+    $('#purchase_page_09').fadeOut();    
     $('#purchase_button').fadeOut();
-    $('#close_button').fadeOut();        
+    $('#close_button').fadeOut(); 
 });
+
 
 
 $('#shop').click(function(){
@@ -744,16 +761,19 @@ $('#shop').click(function(){
         $('#shop_menu_item_tab').fadeIn();
         $('#shop_menu_scene_tab').fadeOut();        
         $('#shop_menu_special_tab').fadeOut();
+        $('#shop_menu_reward_tab').fadeOut();        
 
         //item list update
         $('item_equipment').fadeIn();
         $('item_scene').fadeOut();
         $('item_special').fadeOut();
+        $('item_reward').fadeOut();
+        
         //preview
         $('preview_hat').fadeIn();
         $('preview_special').fadeOut();
         $('preview_scene').fadeOut();
-        
+
         swap_out();
         backpack_or_shop = false;      
     }         
@@ -776,7 +796,9 @@ $('#backpack').click(function(){
         $('#dinasour').fadeOut();
         $('backpack').fadeIn(500);
         swap_out();
-        backpack_or_shop = false;        
+        backpack_or_shop = false;       
+        
+        socket.emit('whats_in_my_bag', {ID:getCookie('ID')});  
     }    
 });
 
@@ -791,16 +813,152 @@ $('#backpack_closeButton').click(function(){
 });
 
 $('#backpack_01').click(function(){
-    console.log("check");
-    if(backpack_01){
-        $('#bp_01').fadeIn();
-        $('#bp_01_02').fadeIn();
-        backpack_01 = false;        
+    var tmp = document.getElementById("backpack_01").src;
+    /* 1到4是帽子，5是雲，7是樹 */
+    console.log(8888888888888)
+    if(parseInt(tmp[tmp.length-5],10) <= 4)
+    {
+        socket.emit('give_me_dino_hat', {ID: getCookie('ID')});
+        hat_id = parseInt(tmp[tmp.length-5],10);
     }
-    else{
-        $('#bp_01').fadeOut();
-        $('#bp_01_02').fadeOut();
-        backpack_01 = true;
+    else if(parseInt(tmp[tmp.length-5],10) == 7) // 雲
+    {
+        console.log(7777777777777777)
+        socket.emit('change_bg', {ID: getCookie('ID'), Item: "tree"});
+    }
+
+    else if(parseInt(tmp[tmp.length-5],10) == 5) // 雲
+    {
+        socket.emit('change_bg', {ID: getCookie('ID'), Item: "umbrella"});
+    }
+});
+
+$('#backpack_02').click(function(){
+    var tmp = document.getElementById("backpack_02").src;
+    if(parseInt(tmp[tmp.length-5],10) <= 4)
+    {
+        socket.emit('give_me_dino_hat', {ID: getCookie('ID')});
+        hat_id = parseInt(tmp[tmp.length-5],10);
+    }
+    else if(parseInt(tmp[tmp.length-5],10) == 7) // 雲
+    {
+        socket.emit('change_bg', {ID: getCookie('ID'), Item: "tree"});
+    }
+
+    else if(parseInt(tmp[tmp.length-5],10) == 5) // 雲
+    {
+        socket.emit('change_bg', {ID: getCookie('ID'), Item: "umbrella"});
+    }
+});
+
+$('#backpack_03').click(function(){
+    var tmp = document.getElementById("backpack_03").src;
+    if(parseInt(tmp[tmp.length-5],10) <= 4)
+    {
+        socket.emit('give_me_dino_hat', {ID: getCookie('ID')});
+        hat_id = parseInt(tmp[tmp.length-5],10);
+    }
+    else if(parseInt(tmp[tmp.length-5],10) == 7) // 雲
+    {
+        socket.emit('change_bg', {ID: getCookie('ID'), Item: "tree"});
+    }
+
+    else if(parseInt(tmp[tmp.length-5],10) == 5) // 雲
+    {
+        socket.emit('change_bg', {ID: getCookie('ID'), Item: "umbrella"});
+    }
+});
+
+$('#backpack_04').click(function(){
+    var tmp = document.getElementById("backpack_04").src;
+    if(parseInt(tmp[tmp.length-5],10) <= 4)
+    {
+        socket.emit('give_me_dino_hat', {ID: getCookie('ID')});
+        hat_id = parseInt(tmp[tmp.length-5],10);
+    }
+    else if(parseInt(tmp[tmp.length-5],10) == 7) // 雲
+    {
+        socket.emit('change_bg', {ID: getCookie('ID'), Item: "tree"});
+    }
+
+    else if(parseInt(tmp[tmp.length-5],10) == 5) // 雲
+    {
+        socket.emit('change_bg', {ID: getCookie('ID'), Item: "umbrella"});
+    }
+});
+
+$('#backpack_05').click(function(){
+    var tmp = document.getElementById("backpack_05").src;
+    if(parseInt(tmp[tmp.length-5],10) <= 4)
+    {
+        socket.emit('give_me_dino_hat', {ID: getCookie('ID')});
+        hat_id = parseInt(tmp[tmp.length-5],10);
+    }
+    else if(parseInt(tmp[tmp.length-5],10) == 7) // 雲
+    {
+        socket.emit('change_bg', {ID: getCookie('ID'), Item: "tree"});
+    }
+
+    else if(parseInt(tmp[tmp.length-5],10) == 5) // 雲
+    {
+        socket.emit('change_bg', {ID: getCookie('ID'), Item: "umbrella"});
+    }
+});
+
+$('#backpack_06').click(function(){
+    var tmp = document.getElementById("backpack_06").src;
+    if(parseInt(tmp[tmp.length-5],10) <= 4)
+    {
+        socket.emit('give_me_dino_hat', {ID: getCookie('ID')});
+        hat_id = parseInt(tmp[tmp.length-5],10);
+    }
+    else if(parseInt(tmp[tmp.length-5],10) == 7) // 雲
+    {
+        socket.emit('change_bg', {ID: getCookie('ID'), Item: "tree"});
+    }
+
+    else if(parseInt(tmp[tmp.length-5],10) == 5) // 雲
+    {
+        socket.emit('change_bg', {ID: getCookie('ID'), Item: "umbrella"});
+    }
+});
+
+$('#backpack_07').click(function(){
+    
+    var tmp = document.getElementById("backpack_07").src;
+
+    if(parseInt(tmp[tmp.length-5],10) <= 4)
+    {
+        console.log('Not me')
+        socket.emit('give_me_dino_hat', {ID: getCookie('ID')});
+        hat_id = parseInt(tmp[tmp.length-5],10);
+    }
+    else if(parseInt(tmp[tmp.length-5],10) == 7) // 雲
+    {        
+        socket.emit('change_bg', {ID: getCookie('ID'), Item: "tree"});
+    }
+
+    else if(parseInt(tmp[tmp.length-5],10) == 5) // 雲
+    {
+        socket.emit('change_bg', {ID: getCookie('ID'), Item: "umbrella"});
+    }
+});
+
+$('#backpack_08').click(function(){
+    var tmp = document.getElementById("backpack_08").src;
+    if(parseInt(tmp[tmp.length-5],10) <= 4)
+    {
+        socket.emit('give_me_dino_hat', {ID: getCookie('ID')});
+        hat_id = parseInt(tmp[tmp.length-5],10);
+    }
+    else if(parseInt(tmp[tmp.length-5],10) == 7) // 雲
+    {
+        socket.emit('change_bg', {ID: getCookie('ID'), Item: "tree"});
+    }
+
+    else if(parseInt(tmp[tmp.length-5],10) == 5) // 雲
+    {
+        socket.emit('change_bg', {ID: getCookie('ID'), Item: "umbrella"});
     }
 });
 
@@ -852,10 +1010,12 @@ $('#shop_menu_item').click(function(){
     $('#shop_menu_item_tab').fadeIn();
     $('#shop_menu_scene_tab').fadeOut(); 
     $('#shop_menu_special_tab').fadeOut();
+    $('#shop_menu_reward_tab').fadeOut();    
     //item list update
     $('item_equipment').fadeIn();
     $('item_scene').fadeOut();
-    $('item_special').fadeOut();    
+    $('item_special').fadeOut();
+    $('item_reward').fadeOut();
     //preview
     $('preview_hat').fadeIn();
     $('preview_special').fadeOut();
@@ -867,11 +1027,13 @@ $('#shop_menu_scene').click(function(){
     //menu update
     $('#shop_menu_item_tab').fadeOut();
     $('#shop_menu_scene_tab').fadeIn();    
-    $('#shop_menu_special_tab').fadeOut();    
+    $('#shop_menu_special_tab').fadeOut();
+    $('#shop_menu_reward_tab').fadeOut();
     //item list update
     $('item_equipment').fadeOut();
     $('item_scene').fadeIn();
     $('item_special').fadeOut();
+    $('item_reward').fadeOut();
     //preview
     $('preview_hat').fadeOut();
     $('preview_special').fadeOut();
@@ -884,38 +1046,191 @@ $('#shop_menu_special').click(function(){
     $('#shop_menu_item_tab').fadeOut();
     $('#shop_menu_scene_tab').fadeOut(); 
     $('#shop_menu_special_tab').fadeIn();
+    $('#shop_menu_reward_tab').fadeOut(); 
     //item list update
     $('item_equipment').fadeOut();
     $('item_scene').fadeOut();
     $('item_special').fadeIn();
+    $('item_reward').fadeOut();    
     //preview
     $('preview_hat').fadeOut();
     $('preview_special').fadeIn();
     $('preview_scene').fadeOut();
 });
 
+$('#shop_menu_reward').click(function(){    
+    console.log("This is shop_menu_reward_tab");        
+    //menu update
+    $('#shop_menu_item_tab').fadeOut();
+    $('#shop_menu_scene_tab').fadeOut(); 
+    $('#shop_menu_special_tab').fadeOut();
+    $('#shop_menu_reward_tab').fadeIn(); 
+    //item list update
+    $('item_equipment').fadeOut();
+    $('item_scene').fadeOut();
+    $('item_special').fadeOut();
+    $('item_reward').fadeIn();    
+    //preview
+    $('preview_hat').fadeOut();
+    $('preview_special').fadeIn();
+    $('preview_scene').fadeOut();
+});
+
+
 $('#price_01').click(function(){    
     item_price = 1000;    
+    item_id = 1;
 });
 $('#price_02').click(function(){    
-    item_price = 1200;    
+    item_price = 1200; 
+    item_id = 2;   
 });
 $('#price_03').click(function(){    
-    item_price = 1500;    
+    item_price = 1500;
+    item_id = 3;    
 });
 $('#price_04').click(function(){    
-    item_price = 2500;    
+    item_price = 2500;
+    item_id = 4;    
 });
 $('#price_05').click(function(){    
-    item_price = 1500;    
+    item_price = 1500;
+    item_id = 5;    
 });
 $('#price_06').click(function(){    
-    item_price = 1500;    
+    item_price = 1500;
+    item_id = 6;    
 });
 $('#price_07').click(function(){
+    item_price = 3000;
+    item_id = 7;    
+});
+$('#price_08').click(function(){
+    buying_which_item = 8;
     item_price = 3000;    
+});
+$('#price_09').click(function(){
+    //buying_which_item = 9;
+    item_price = 1800;    
 });
 
 $('#purchase_button').click(function(){        
-    socket.emit('purchase_some_item', {ID:getCookie('ID'), Money:item_price});        
+    socket.emit('purchase_some_item', {ID:getCookie('ID'), Money:item_price, Itemid:item_id});        
 });
+
+socket.on('whats_in_your_bag', function(data){
+    if(data.ID == getCookie('ID')){   
+      for(var i=0; i<data.Item.length; i++)
+      {
+        var j = i+1;
+        $('#backpack_0'+j.toString()).attr("src", "./assests/item"+ data.Item[i]+".svg");      
+        console.log(data.Item[i]);
+        console.log(j);
+      }           
+    }
+})
+
+//檢查目前應該是哪一種狀態的屁頭龍
+socket.on('give_you_dino_hat', function(data){
+    console.log('in0');
+    if(data.ID == getCookie('ID')){
+      var dino = data.Dino;
+      console.log(dino);
+      if(dino % 4 == 0)
+      {
+        dino = 0;
+      }
+      else if((dino-1) % 4 == 0)
+      {
+        dino = 1;
+      }
+      else if((dino-2) % 4 == 0)
+      {
+        dino = 2;
+      }
+      else if((dino-3) % 4 == 0)
+      {
+        dino = 3;
+      }
+      dino = dino + (hat_id*4);
+      console.log('in');
+      console.log(dino);
+      console.log(hat_id);
+      $('#ass_dinasour').attr("src", "./assests/dino" + dino.toString() + ".svg");
+      $('#ass_dinasour_2').attr("src", "./assests/dino" + dino.toString() + ".svg");
+      //$('#dinosaur_model').attr("src", "./assests/dino" + dino.toString() + ".svg");
+      //$('#dinosaur_model_special').attr("src", "./assests/dino" + dino.toString() + ".svg");
+      //$('#dinosaur_model_scene').attr("src", "./assests/dino" + dino.toString() + ".svg");      
+      $('#dinosaur_backpack').attr("src", "./assests/dino" + dino.toString() + ".svg");    
+      socket.emit('dino_change_hat',{ID:getCookie('ID'), Dino:dino});
+    }
+  })
+
+    socket.on('give_you_dino', function(data){
+
+        if(data.ID == getCookie('ID')){
+            var dino = data.Dino;
+            $('#ass_dinasour').attr("src", "./assests/dino" + dino.toString() + ".svg");
+            $('#ass_dinasour_2').attr("src", "./assests/dino" + dino.toString() + ".svg");
+            //$('#dinosaur_model').attr("src", "./assests/dino" + dino.toString() + ".svg");
+            //$('#dinosaur_model_special').attr("src", "./assests/dino" + dino.toString() + ".svg");
+            //$('#dinosaur_model_scene').attr("src", "./assests/dino" + dino.toString() + ".svg");      
+            $('#dinosaur_backpack').attr("src", "./assests/dino" + dino.toString() + ".svg");  
+
+            if(dino % 4 == 0)
+            {
+                dino = 0;
+            }
+            else if((dino-1) % 4 == 0)
+            {
+                dino = 1;
+            }
+            else if((dino-2) % 4 == 0)
+            {
+                dino = 2;
+            }
+            else if((dino-3) % 4 == 0)
+            {
+                dino = 3;
+            } 
+            $('#dinosaur_model').attr("src", "./assests/dino" + dino.toString() + ".svg");
+            $('#dinosaur_model_special').attr("src", "./assests/dino" + dino.toString() + ".svg");
+            $('#dinosaur_model_scene').attr("src", "./assests/dino" + dino.toString() + ".svg");  
+        }
+    })
+   /*if(dino == 0)
+      {
+        $('#ass_dinasour').attr("src", "./assests/屁頭龍.svg");
+        $('#ass_dinasour_2').attr("src", "./assests/屁頭龍.svg");
+        $('#dinosaur_model').attr("src", "./assests/屁頭龍.svg");
+        $('#dinosaur_model_special').attr("src", "./assests/屁頭龍.svg");
+        $('#dinosaur_model_scene').attr("src", "./assests/屁頭龍.svg");      
+        $('#dinosaur_backpack').attr("src", "./assests/屁頭龍.svg");            
+      }
+      else if(dino == 1)
+      {      
+        $('#ass_dinasour').attr("src", "./assests/疾風龍.svg");
+        $('#ass_dinasour_2').attr("src", "./assests/疾風龍.svg");
+        $('#dinosaur_model').attr("src", "./assests/疾風龍.svg");
+        $('#dinosaur_model_special').attr("src", "./assests/疾風龍.svg");
+        $('#dinosaur_model_scene').attr("src", "./assests/疾風龍.svg");      
+        $('#dinosaur_backpack').attr("src", "./assests/疾風龍.svg");      
+      }
+      else if(dino == 2)
+      {
+        $('#ass_dinasour').attr("src", "./assests/火山龍.svg");
+        $('#ass_dinasour_2').attr("src", "./assests/火山龍.svg");
+        $('#dinosaur_model').attr("src", "./assests/火山龍.svg");
+        $('#dinosaur_model_special').attr("src", "./assests/火山龍.svg");
+        $('#dinosaur_model_scene').attr("src", "./assests/火山龍.svg");
+        $('#dinosaur_backpack').attr("src", "./assests/火山龍.svg");      
+      }
+      else if(dino == 3)
+      {      
+        $('#ass_dinasour').attr("src", "./upgrade/天使龍 (1).svg");
+        $('#ass_dinasour_2').attr("src", "./upgrade/天使龍 (1).svg");
+        $('#dinosaur_model').attr("src", "./upgrade/天使龍 (1).svg");
+        $('#dinosaur_model_special').attr("src", "./upgrade/天使龍 (1).svg");
+        $('#dinosaur_model_scene').attr("src", "./upgrade/天使龍 (1).svg");
+        $('#dinosaur_backpack').attr("src", "./upgrade/天使龍 (1).svg");      
+      }*/

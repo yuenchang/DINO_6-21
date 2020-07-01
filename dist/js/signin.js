@@ -121,6 +121,10 @@ $(document).ready(function () {
         value6 = list.stage;
         key7 = "dino";
         value7 = list.dino;
+        key8 = "tree";
+        value8 = list.tree;
+        key9 = "umbrella";
+        value9 = list.umbrella;
 		    var expires = new Date();
 		    expires.setTime(expires.getTime()+60*60*1000 );//10 min
 		    document.cookie = key1 + "=" + escape(value1) +"; expires=" + expires.toGMTString();
@@ -129,6 +133,8 @@ $(document).ready(function () {
 		    document.cookie = key5 + "=" + escape(value5) +"; expires=" + expires.toGMTString();
         document.cookie = key6 + "=" + escape(value6) +"; expires=" + expires.toGMTString();
         document.cookie = key7 + "=" + escape(value7) +"; expires=" + expires.toGMTString();
+        document.cookie = key8 + "=" + escape(value8) +"; expires=" + expires.toGMTString();
+        document.cookie = key9 + "=" + escape(value9) +"; expires=" + expires.toGMTString();
 		    console.log(document.cookie)
     
         // animation

@@ -18,6 +18,7 @@ $(document).ready(function () {
   socket.emit('give_me_score', {ID: getCookie('ID')});
   socket.emit('give_me_stage', {ID: getCookie('ID')});
   socket.emit('give_me_letter_k', {ID: getCookie('ID')});
+  socket.emit('give_me_tree', {ID: getCookie('ID')});
 
    /* 確認恐龍是哪隻 */
    socket.emit('give_me_dino', {ID: getCookie('ID')});
@@ -252,6 +253,7 @@ function letter_back(){
   $('#left_leaf').animate({left:"+=200vw" },1500);
   $('#mission_logo').animate({left:"+=200vw" },1500);
   $('#mission_text').animate({left:"+=200vw" },1500);
+  $('#ass_dinasour').fadeTo('slow','1');
   $('#ass_dinasour').animate({top:"+=23vh" },800);
   $('#ass_dinasour_2').fadeOut();    
 }
@@ -553,46 +555,5 @@ window.setInterval(function () {
 }, 100);
 
 
-//檢查目前應該是哪一種狀態的屁頭龍
-socket.on('give_you_dino', function(data){
-  if(data.ID == getCookie('ID')){
-    var dino = data.Dino;    
-    if(dino == 0)
-    {
-      $('#ass_dinasour').attr("src", "./assests/屁頭龍.svg");
-      $('#ass_dinasour_2').attr("src", "./assests/屁頭龍.svg");
-      $('#dinosaur_model').attr("src", "./assests/屁頭龍.svg");
-      $('#dinosaur_model_special').attr("src", "./assests/屁頭龍.svg");
-      $('#dinosaur_model_scene').attr("src", "./assests/屁頭龍.svg");      
-      $('#dinosaur_backpack').attr("src", "./assests/屁頭龍.svg");            
-    }
-    else if(dino == 1)
-    {      
-      $('#ass_dinasour').attr("src", "./assests/疾風龍.svg");
-      $('#ass_dinasour_2').attr("src", "./assests/疾風龍.svg");
-      $('#dinosaur_model').attr("src", "./assests/疾風龍.svg");
-      $('#dinosaur_model_special').attr("src", "./assests/疾風龍.svg");
-      $('#dinosaur_model_scene').attr("src", "./assests/疾風龍.svg");      
-      $('#dinosaur_backpack').attr("src", "./assests/疾風龍.svg");      
-    }
-    else if(dino == 2)
-    {
-      $('#ass_dinasour').attr("src", "./assests/火山龍.svg");
-      $('#ass_dinasour_2').attr("src", "./assests/火山龍.svg");
-      $('#dinosaur_model').attr("src", "./assests/火山龍.svg");
-      $('#dinosaur_model_special').attr("src", "./assests/火山龍.svg");
-      $('#dinosaur_model_scene').attr("src", "./assests/火山龍.svg");
-      $('#dinosaur_backpack').attr("src", "./assests/火山龍.svg");      
-    }
-    else if(dino == 3)
-    {      
-      $('#ass_dinasour').attr("src", "./assests/天使龍.svg");
-      $('#ass_dinasour_2').attr("src", "./assests/天使龍.svg");
-      $('#dinosaur_model').attr("src", "./assests/天使龍.svg");
-      $('#dinosaur_model_special').attr("src", "./assests/天使龍.svg");
-      $('#dinosaur_model_scene').attr("src", "./assests/天使龍.svg");
-      $('#dinosaur_backpack').attr("src", "./assests/天使龍.svg");      
-    }
-  }
-})
+
 

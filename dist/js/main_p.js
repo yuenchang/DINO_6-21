@@ -29,11 +29,12 @@ $(document).ready(function() {
     $('#nortification').click( function(){
       $('#black').fadeIn(400);
       $('#info').fadeIn(400);
-      //$('ass_dinasour').css('display', 'none');
+      $('#dinasour').fadeOut();  
       socket.emit('give_me_letter', {ID: getCookie('ID')});
     });
 
     $('#letter_p_close').click( function(){
+      $('#dinasour').fadeIn();
       $('#black').fadeOut(400);
       $('#info').fadeOut(400);
       $('#all_letter').fadeOut(400);
@@ -267,6 +268,13 @@ function send_letter(){
   $('#letter_bg_rec').animate({top:"-=22vh", left:"-=15vw", height:"+=43vh", width:"+=30vw"}, 10);
 }
 
+socket.on('give_you_money', function(data){  
+  if(data.ID == getCookie('ID')){    
+    money = data.Money;
+    document.getElementById('money').innerHTML = money;    
+  }
+})
+
 socket.on('give_you_score', function(data){
   if(data.ID == getCookie('ID')){
     var em = (data.Score / 100 )*4 + "em";
@@ -291,7 +299,8 @@ socket.on('give_you_stage', function(data){
     $('#EXP').css({"width":em}); 
     //update gold
     money_p += data.Money/2;
-    document.getElementById('money').innerHTML = money_p; 
+    document.getElementById('money').innerHTML = money_p;
+    socket.emit('update_money_score', {ID: data.ID,Money: money,Score: score}); 
   }
 })
 
@@ -305,7 +314,8 @@ socket.on('purchase_item', function(data){
     else{      
       console.log("沒錢了啦! >.<");
     }
-    document.getElementById('money').innerHTML = money_p; 
+    document.getElementById('money').innerHTML = money_p;
+    socket.emit('update_money_score', {ID: data.ID,Money: money,Score: score});
   }
 })
 

@@ -1,7 +1,7 @@
-position, #shop, #shop_stall, #shop_closeButton, #shop_logo, #shop_menu, #shop_menu_item, #shop_menu_scene, #shop_menu_special, #shop_menu_reward, #shop_menu_item_tab, #shop_menu_special_tab, #shop_menu_scene_tab, #dinosaur_model, #dinosaur_model_special, #dinosaur_model_scene, #dinosaur_model_lotus_leaf, #item_01, #item_02, #item_03, #item_04, #item_05, #item_06, #item_07, #item_08, #item_09, #hat_01, #hat_02, #hat_03, #hat_04, #lotus_leaf, #thunder_cloud, #price_01, #price_02, #price_03, #price_04, #price_05, #price_06, #price_07, #hat_model_01, #hat_model_02, #hat_model_03, #hat_model_04, #hat_model_04_02, #purchase_button, #close_button, #purchase_page_01, #purchase_page_02, #purchase_page_03, #purchase_page_04, #purchase_page_05, #purchase_page_06, #purchase_page_07, #thunder_cloud_model, #backpack, #big_backpack, #backpack_closeButton, #dinosaur_backpack, #backpack_01, #backpack_02, #backpack_03, #backpack_04, #backpack_05, #backpack_06, #backpack_07, #backpack_08, #bp_01, #bp_01_02, #tree, #ness_monster, #NCKU_tree {
+position, #shop, #shop_stall, #shop_closeButton, #shop_logo, #shop_menu, #shop_menu_item, #shop_menu_scene, #shop_menu_special, #shop_menu_reward, #shop_menu_item_tab, #shop_menu_special_tab, #shop_menu_scene_tab, #shop_menu_reward_tab, #dinosaur_model, #dinosaur_model_special, #dinosaur_model_scene, #dinosaur_model_lotus_leaf, #item_01, #item_02, #item_03, #item_04, #item_05, #item_06, #item_07, #item_08, #item_09, #hat_01, #hat_02, #hat_03, #hat_04, #lotus_leaf, #thunder_cloud, #price_01, #price_02, #price_03, #price_04, #price_05, #price_06, #price_07, #price_08, #price_09, #hat_model_01, #hat_model_02, #hat_model_03, #hat_model_04, #hat_model_04_02, #purchase_button, #close_button, #purchase_page_01, #purchase_page_02, #purchase_page_03, #purchase_page_04, #purchase_page_05, #purchase_page_06, #purchase_page_07, #purchase_page_08, #purchase_page_09, #thunder_cloud_model, #backpack, #big_backpack, #backpack_closeButton, #dinosaur_backpack, #backpack_01, #backpack_02, #backpack_03, #backpack_04, #backpack_05, #backpack_06, #backpack_07, #backpack_08, #bp_01, #bp_01_02, #tree, #ness_monster, #NCKU_tree, #paint, #iceCream {
   position: absolute; }
 
-opacity_zero, #shop, #shop_stall, #shop_closeButton, #shop_logo, #shop_menu, #shop_menu_item, #shop_menu_scene, #shop_menu_special, #shop_menu_reward, #dinosaur_model, #dinosaur_model_special, #dinosaur_model_scene, #dinosaur_model_lotus_leaf, #item_01, #item_02, #item_03, #item_04, #item_05, #item_06, #item_07, #item_08, #item_09, #hat_01, #hat_02, #hat_03, #hat_04, #lotus_leaf, #thunder_cloud, #price_01, #price_02, #price_03, #price_04, #price_05, #price_06, #price_07, #hat_model_01, #hat_model_02, #hat_model_03, #hat_model_04, #hat_model_04_02, #purchase_button, #close_button, #purchase_page_01, #purchase_page_02, #purchase_page_03, #purchase_page_04, #purchase_page_05, #purchase_page_06, #purchase_page_07, #thunder_cloud_model, #backpack, #big_backpack, #backpack_closeButton, #dinosaur_backpack, #backpack_01, #backpack_02, #backpack_03, #backpack_04, #backpack_05, #backpack_06, #backpack_07, #backpack_08, #bp_01, #bp_01_02, #tree, #ness_monster, #NCKU_tree {
+opacity_zero, #shop, #shop_stall, #shop_closeButton, #shop_logo, #shop_menu, #shop_menu_item, #shop_menu_scene, #shop_menu_special, #shop_menu_reward, #shop_menu_reward_tab, #dinosaur_model, #dinosaur_model_special, #dinosaur_model_scene, #dinosaur_model_lotus_leaf, #item_01, #item_02, #item_03, #item_04, #item_05, #item_06, #item_07, #item_08, #item_09, #hat_01, #hat_02, #hat_03, #hat_04, #lotus_leaf, #thunder_cloud, #price_01, #price_02, #price_03, #price_04, #price_05, #price_06, #price_07, #price_08, #price_09, #hat_model_01, #hat_model_02, #hat_model_03, #hat_model_04, #hat_model_04_02, #purchase_button, #close_button, #purchase_page_01, #purchase_page_02, #purchase_page_03, #purchase_page_04, #purchase_page_05, #purchase_page_06, #purchase_page_07, #purchase_page_08, #purchase_page_09, #thunder_cloud_model, #backpack, #big_backpack, #backpack_closeButton, #dinosaur_backpack, #backpack_01, #backpack_02, #backpack_03, #backpack_04, #backpack_05, #backpack_06, #backpack_07, #backpack_08, #bp_01, #bp_01_02, #tree, #ness_monster, #NCKU_tree, #paint, #iceCream {
   opacity: 1; }
 
 shop {
@@ -14,6 +14,9 @@ item_scene {
   display: none; }
 
 item_special {
+  display: none; }
+
+item_reward {
   display: none; }
 
 preview_hat {
@@ -96,6 +99,13 @@ preview_special {
   top: 31.5vh;
   left: 50.5vw;
   display: none;
+  z-index: 2;
+  cursor: pointer; }
+
+#shop_menu_reward_tab {
+  width: 4.5vw;
+  top: 31.5vh;
+  left: 70vw;
   z-index: 2;
   cursor: pointer; }
 
@@ -247,6 +257,18 @@ preview_special {
   left: 24vw;
   cursor: pointer; }
 
+#price_08 {
+  width: 13vw;
+  top: 46vh;
+  left: 64vw;
+  cursor: pointer; }
+
+#price_09 {
+  width: 13vw;
+  top: 46vh;
+  left: 24vw;
+  cursor: pointer; }
+
 #hat_model_01 {
   width: 30vw;
   top: 69vh;
@@ -335,6 +357,18 @@ preview_special {
   display: none; }
 
 #purchase_page_07 {
+  width: 60vw;
+  top: 37vh;
+  left: 20vw;
+  display: none; }
+
+#purchase_page_08 {
+  width: 60vw;
+  top: 37vh;
+  left: 20vw;
+  display: none; }
+
+#purchase_page_09 {
   width: 60vw;
   top: 37vh;
   left: 20vw;
@@ -450,3 +484,13 @@ backpack {
   width: 16vw;
   top: 41vh;
   left: 23vw; }
+
+#paint {
+  width: 12vw;
+  top: 39vh;
+  left: 64vw; }
+
+#iceCream {
+  width: 6vw;
+  top: 39vh;
+  left: 27vw; }

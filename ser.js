@@ -56,7 +56,10 @@ app.get('/register', (req, res) => {
           stage: 0,
           score: 0,
           dino: 0,
-          money: 0
+          money: 0,
+          item:"",
+          tree:0,
+          umbrella:0
         }
         var reff = database.ref('account/'+req.query.id);
         reff.set(input);
@@ -100,6 +103,8 @@ app.get('/signin',(req, res) =>{
           var birthday = data.val().birthday
           var stage = data.val().stage
           var dino = data.val().dino
+          var tree = data.val().tree
+          var umbrella = data.val().umbrella
           console.log(typeof(nickname))
           console.log(nickname)
           //傳給cookie的資料為下
@@ -111,7 +116,9 @@ app.get('/signin',(req, res) =>{
               "birthday": "${birthday}",
               "exist": true,
               "stage": "${stage}",
-              "dino": "${dino}"
+              "dino": "${dino}",
+              "tree": "${tree}",
+              "umbrella": "${umbrella}"
             }
           `)
         }
@@ -252,7 +259,10 @@ io.emit('giveYouBomb',bomb);
               letter_for_kid:"",
               score: 0,
               stage: 0,
-              dino: 0
+              dino: 0,
+              item: db.val().item,
+              tree:0,
+              umbrella:0
             }
             var reff = database.ref('account/'+data.id);
             reff.set(input);
@@ -315,7 +325,10 @@ io.emit('giveYouBomb',bomb);
           score: db.val().score,
           stage: db.val().stage,
           money: db.val().money,
-          dino: db.val().dino
+          dino: db.val().dino,
+          item: db.val().item,
+          tree: db.val().tree,
+          umbrella: db.val().umbrella,
         }
         reff.set(input);
         console.log(letters)
@@ -359,7 +372,11 @@ io.emit('giveYouBomb',bomb);
         score: db.val().score,
         stage: db.val().stage,
         money: db.val().money,
-        dino: db.val().dino
+        dino: db.val().dino,
+        item: db.val().item,
+        tree: db.val().tree,
+        umbrella: db.val().umbrella
+        
       }
       reff.set(input);
       console.log(letters)
@@ -606,6 +623,8 @@ socket.on('give_me_letter', function(data){
     socket.on('purchase_some_item', function(data){
       console.log("purchase some item");      
       io.sockets.emit('purchase_item',{ID:data.ID,Money:data.Money});
+      var reff = database.ref('account/' + data.ID + '/item/' + data.Itemid);
+      reff.set(1);
     })
 
     socket.on('update_money_score', function(data){              
@@ -632,23 +651,153 @@ socket.on('give_me_letter', function(data){
           score: db.val().score-100,
           stage: db.val().stage,
           money: db.val().money,
-          dino: data.dino
+          dino: data.dino,
+          item: db.val().item,
+          tree: db.val().tree,
+          umbrella: db.val().umbrella,
         }
         reff.set(input);
       });
     })
 
     socket.on('give_me_dino', function(data){
+
+      //io.sockets.emit('give_you_dino',{ID:data.ID,Dino:0});
       database.ref('account/'+data.ID+'/dino').once('value',db=>{
         var dino = db.val();
-        socket.emit('give_you_dino', {ID:data.ID, Dino:dino});//傳
+        console.log('gmd');
+        io.sockets.emit('give_you_dino',{ID:data.ID,Dino:dino});
+        //socket.emit('give_you_dino', {ID:data.ID, Dino:dino});//傳
+      });
+    })
+
+    socket.on('give_me_dino_hat', function(data){
+
+      //io.sockets.emit('give_you_dino',{ID:data.ID,Dino:0});
+      database.ref('account/'+data.ID+'/dino').once('value',db=>{
+        var dino = db.val();
+        io.sockets.emit('give_you_dino_hat',{ID:data.ID,Dino:dino});
+        //socket.emit('give_you_dino', {ID:data.ID, Dino:dino});//傳
       });
     })
 
     socket.on('give_me_money', function(data){      
-      database.ref('account/'+data.ID+'/money').once('value',db=>{
+      database.ref('account/'+data.ID+'/money').on('value',db=>{
         var s = db.val();        
         socket.emit('give_you_money', {ID:data.ID, Money:s});        
+      });
+    })
+
+    socket.on('whats_in_my_bag', function(data){
+      database.ref('account/'+data.ID+'/item').once('value',db=>{
+        //console.log(db.val());
+        var item = "";
+        for(var i=1; i< db.val().length; i++)
+        {
+          //console.log(db.val()[i]);
+          if(db.val()[i] == 1)
+          {
+            item = item + i.toString();
+          }
+        }
+        console.log(item)
+        //var s = db.val();
+        io.sockets.emit('whats_in_your_bag', {ID:data.ID, Item:item});//傳
+      });
+    })
+
+
+    /*socket.on('is_there_letter', function(data){
+      database.ref('account/'+data.ID+'/letter').on('value',db=>{
+        for(var i=0; i< db.val().length; i++)
+        {
+          if(db.val()[i].read == false)
+          {
+            socket.emit('there_is_letter', {ID:data.ID});//傳
+          }
+        }
+      });
+    })*/
+
+    socket.on('dino_change_hat', function(data){
+      var reff = database.ref('account/'+data.ID);
+      database.ref('account/'+data.ID).once('value',db=>{
+        
+        // 將所有的資料再包一次.並傳進database. 不然新資料會覆蓋掉舊的資料
+        var input = {
+          password:db.val().password,
+          parent_password: db.val().parent_password,
+          parent_birth: db.val().parent_birth,
+          child_birth: db.val().child_birth,
+          nickname: db.val().nickname,
+          letter: db.val().letter,
+          letter_for_kid: db.val().letter_for_kid,
+          score: db.val().score,
+          stage: db.val().stage,
+          money: db.val().money,
+          dino: data.Dino,
+          item: db.val().item,
+          tree: db.val().tree,
+          umbrella: db.val().umbrella
+        }
+        reff.set(input);
+      });
+    })
+
+    socket.on('change_bg', function(data){
+      var reff = database.ref('account/'+data.ID);
+      database.ref('account/'+data.ID).once('value',db=>{
+        var tree_tmp = db.val().tree;
+
+        var umbrella_tmp = db.val().umbrella;
+        
+        if(data.Item == "tree")
+        {
+          console.log('tree')
+          if(db.val().tree == 0)
+          {
+            tree_tmp = 1;
+          }
+          else if(db.val().tree == 1)
+          {
+            tree_tmp = 0;
+          }
+             
+        }
+        else if(data.Item == "umbrella")
+        {
+          if(db.val().umbrella == 0)
+          {
+            umbrella_tmp = 1;
+          }
+          else if(db.val().umbrella == 1)
+          {
+            umbrella_tmp = 0;
+          }
+          console.log(tree_tmp)
+        }
+          // 加入database
+          var input = {
+            password:db.val().password,
+            parent_password: db.val().parent_password,
+            parent_birth: db.val().parent_birth,
+            child_birth: db.val().child_birth,
+            nickname: db.val().nickname,
+            letter: db.val().letter,
+            letter_for_kid: db.val().letter_for_kid,
+            score: db.val().score,
+            stage: db.val().stage,
+            money: db.val().money,
+            dino: db.val().dino,
+            item: db.val().item,
+            tree: tree_tmp,
+            umbrella: umbrella_tmp
+          }
+          console.log(input)
+          reff.set(input);
+
+             
+        
       });
     })
     

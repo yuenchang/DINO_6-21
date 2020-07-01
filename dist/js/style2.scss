@@ -28,6 +28,10 @@ item_special {
     display: none;
 }
 
+item_reward {
+    display: none;
+}
+
 preview_hat {
     display: 1;
 }
@@ -120,6 +124,14 @@ preview_special {
     @include coordinate_information(4.5vw, 31.5vh, 50.5vw);       
     display: none;
     z-index: 2;  
+    cursor: pointer;
+}
+
+#shop_menu_reward_tab {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(4.5vw, 31.5vh, 70vw);    
+    z-index: 2;
     cursor: pointer;
 }
 
@@ -297,6 +309,20 @@ preview_special {
     cursor: pointer;
 }
 
+#price_08 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(13vw, 46vh, 64vw);
+    cursor: pointer;
+}
+
+#price_09 {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(13vw, 46vh, 24vw);
+    cursor: pointer;
+}
+
 #hat_model_01 {    
     @extend position;
     @extend opacity_zero;    
@@ -404,6 +430,19 @@ preview_special {
     display: none;
 }
 
+#purchase_page_08 {
+    @extend position;
+    @extend opacity_zero;    
+    @include coordinate_information(60vw, 37vh, 20vw);    
+    display: none;
+}
+
+#purchase_page_09 {
+    @extend position;
+    @extend opacity_zero;    
+    @include coordinate_information(60vw, 37vh, 20vw);    
+    display: none;
+}
 #thunder_cloud_model {
     @extend position;
     @extend opacity_zero;    
@@ -532,5 +571,17 @@ backpack {
 #NCKU_tree {
     @extend position;
     @extend opacity_zero;
-    @include coordinate_information(16vw, 41vh, 23vw);    
+    @include coordinate_information(16vw, 41vh, 23vw);  
+}
+
+#paint {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(12vw, 39vh, 64vw);
+}
+
+#iceCream {
+    @extend position;
+    @extend opacity_zero;
+    @include coordinate_information(6vw, 39vh, 27vw);
 }
