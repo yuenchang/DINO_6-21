@@ -6,7 +6,34 @@ var can_upgrade = false;
 var score,money,gameLevel;
 
 $(document).ready(function () {
- 
+
+  if ( typeof( DeviceMotionEvent ) !== "undefined" && typeof( DeviceMotionEvent.requestPermission ) === "function" ) {
+    // (optional) Do something before API request prompt.
+    DeviceMotionEvent.requestPermission()
+      .then( response => {
+        // (optional) Do something after API prompt dismissed.
+        if ( response == "granted" ) {
+          window.addEventListener( "devicemotion", (e) => {
+            // do something for 'e' here.
+          })
+        }
+      })
+      .catch( console.error )
+  } else {
+    console.log( "DeviceMotionEvent is not defined" );
+  }
+
+  socket.emit('score_add',{ID: getCookie('ID'), score: parseInt(getCookie('scoreGet') ) });
+  socket.emit('money_add',{ID: getCookie('ID'), money: parseInt(getCookie('moneyGet') ) });
+  key1 = "scoreGet";
+  value1 = 0;
+  key2 = "moneyGet";
+  value2 = 0;
+  var expires = new Date();
+  expires.setTime(expires.getTime()+60*60*1000 );//10 min
+  document.cookie = key1 + "=" + escape(value1) +"; expires=" + expires.toGMTString();
+  document.cookie = key2 + "=" + escape(value2) +"; expires=" + expires.toGMTString();
+
   $('#letter').html("\n  謝謝" + getCookie('nickname') + "\n\n  因為...\n\n  這讓我覺得...");
   var id = getCookie('ID'); 
   if(id==null)
@@ -19,7 +46,7 @@ $(document).ready(function () {
   socket.emit('give_me_stage', {ID: getCookie('ID')});
   socket.emit('give_me_letter_k', {ID: getCookie('ID')});
   socket.emit('give_me_tree', {ID: getCookie('ID')});
-
+  socket.emit('give_me_umbrella', {ID: getCookie('ID')});
    /* 確認恐龍是哪隻 */
    socket.emit('give_me_dino', {ID: getCookie('ID')});
 
@@ -59,7 +86,9 @@ $(document).ready(function () {
       socket.emit('give_me_score', {ID: getCookie('ID')}); 
     })
     
-    document.getElementById("ass_dinasour").setAttribute("src", "assests/屁頭龍下雨天怎麼辦我好想你.png");
+    if($("#ass_dinasour").attr("src") == "./assests/dino0.svg"){
+      document.getElementById("ass_dinasour").setAttribute("src", "assests/屁頭龍下雨天怎麼辦我好想你.png");
+    }
   })
 
   /* 進化對話匡消失 */
@@ -79,7 +108,7 @@ $(document).ready(function () {
   $('#mission_info_ok').click(function(){
     $('.mission_info').fadeOut(400);
     $('#mark').fadeOut(400);
-    /////////////////////////////////
+    location.href='guide.html'
   });
 
 
@@ -358,7 +387,7 @@ socket.on('give_you_score', function(data){
     }
 
     /* 緊急任務 */
-    if(data.Score == 50 && data.Dino > 0 && data.Dino < 4)
+    if(data.Score == 50 && data.Dino % 4 != 0)
     {
       $('#mark').css('display','block');
     }
@@ -513,11 +542,11 @@ if(window.DeviceOrientationEvent) {
     if(beta<0)
       beta = 0;
     var y = (beta*40) / 90 - 10;
-    $("#cloud").css("top", `${y}vh`); 
-    $("#cloud").css("left", `${gamma}vw`); 
+    $("#umbrella").css("top", `${y}vh`); 
+    $("#umbrella").css("left", `${gamma}vw`); 
     
     var rect1 ={ x: parseInt($('#ass_dinasour').css('left'), 10),y: parseInt($('#ass_dinasour').css('top'), 10),width: parseInt($('#ass_dinasour').css('width'), 10),height: parseInt($('#ass_dinasour').css('height'), 10)}
-    var rect2 ={ x: parseInt($('#cloud').css('left'), 10),y: parseInt($('#cloud').css('top'), 10),width: parseInt($('#cloud').css('width'), 10),height: 780}
+    var rect2 ={ x: parseInt($('#umbrella').css('left'), 10),y: parseInt($('#umbrella').css('top'), 10),width: parseInt($('#umbrella').css('width'), 10),height: 780}
 
     if (rect1.x < rect2.x + rect2.width &&
       rect1.x + rect1.width > rect2.x &&
@@ -554,6 +583,24 @@ window.setInterval(function () {
   }
 }, 100);
 
+socket.on('give_you_tree', function(data){  
+  if(data.ID == getCookie('ID')){    
+    if(data.tree == 1)
+    {
+      $('#tree').fadeIn();
+    }
+  }
+})
 
+
+socket.on('give_you_umbrella', function(data){  
+  if(data.ID == getCookie('ID')){    
+    if(data.umbrella == 1)
+    {
+      $('#umbrella').fadeIn();
+    }
+  }
+
+})
 
 

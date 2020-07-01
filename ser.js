@@ -512,6 +512,27 @@ socket.on('give_me_letter', function(data){
       });
     })
 
+    socket.on('score_add', function(data){// data.score回傳0或是10分
+      
+
+      database.ref('account/'+data.ID+'/score').once('value',db=>{
+        var s = db.val();
+        s+=data.score;//將目前的分數加上0或10
+        database.ref('account/'+data.ID+'/score').set(s);
+      });
+    })
+
+    socket.on('money_add', function(data){// data.score回傳0或是10分
+      
+
+      database.ref('account/'+data.ID+'/money').once('value',db=>{
+        var s = db.val();
+        s+=data.money;//將目前的分數加上0或10
+        console.log(data.money)
+        database.ref('account/'+data.ID+'/money').set(s);
+      });
+    })
+
     /**** p端確認信件並加分或不給分 ****/
     socket.on('score_letter', function(data){// data.score回傳0或是10分
       console.log(data.letter_id);
@@ -798,6 +819,20 @@ socket.on('give_me_letter', function(data){
 
              
         
+      });
+    })
+
+    socket.on('give_me_tree', function(data){
+      database.ref('account/'+data.ID+'/tree').once('value',db=>{
+        var s = db.val();
+        socket.emit('give_you_tree', {ID:data.ID, tree:s});//傳
+      });
+    })
+
+    socket.on('give_me_umbrella', function(data){
+      database.ref('account/'+data.ID+'/umbrella').once('value',db=>{
+        var s = db.val();
+        socket.emit('give_you_umbrella', {ID:data.ID, umbrella:s});//傳
       });
     })
     

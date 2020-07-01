@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta charset='utf-8'>
+    <title>guide</title>
+    <meta name="viewport" content="user-scalable=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body id="body">
+    <!--button id="request">button</button-->
+    <img id="a" src="./res/game/1.png">
+    <img id="iknowa" src="./res/game/iknow.png">
+    <img id="b" src="./res/game/2.png">
+    <img id="iknowb" src="./res/game/iknow.png">
+    <img id="ok" src="./res/game/ok.png">
+    <img id="sensei" src="./res/game/sensei.png">
+  </body>
+  <style  type="text/css">
+    #a{
+      width:99vw;
+    }
+    #iknowa{
+      position:absolute;
+      top:76vh;
+      left:40vw;
+      width:15em;
+    }
+    #b{
+      width:99vw;
+      display:none;
+    }
+    #iknowb{
+      display: none;
+      position:absolute;
+      top:48vh;
+      left:38vw;
+      width:15em;
+    }
+    #ok{
+      display: none;
+      width:99vw;
+    }
+    #sensei{
+      display:none;
+      position:absolute;
+      top:57vh;
+      left:35vw;
+      width:15em;
+    }
+
+  </style>
+  <script>
+    $( "#iknowa" ).click(function() {
+      $( "#iknowa" ).fadeOut();
+      $( "#a" ).fadeOut(function(){
+        $( "#b" ).fadeIn();
+        $( "#iknowb" ).fadeIn();
+      });
+    });
+    $( "#iknowb" ).click(function() {
+      $( "#iknowb" ).fadeOut();
+      $( "#b" ).fadeOut(function(){
+        $( "#sensei" ).fadeIn();
+        $( "#ok" ).fadeIn();
+      });
+    });
+    $("#sensei").click(function(){
+     location.href='dd.html' 
+
+    })
+
+    
+    
+  </script>
+</html>

@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta charset='utf-8'>
+    <title>game</title>
+  </head>
+  <body id="body">
+    <button id="request">button</button>
+    <img id="enemyHealth" src="./res/game/enemyHealth.svg">
+    <svg id="enemyHealthbar" xmlns="http://www.w3.org/2000/svg" width="900" height="44" viewBox="0 0 225 11"><defs><style>.a{fill:#980000;}</style></defs><rect id ="enemyHealthbarval" class="a" width="178" height="11" rx="5.5"/></svg>
+    <img id="style" src="./res/game/style.svg">
+    <svg id ="healthbar" xmlns="http://www.w3.org/2000/svg" width="369" height="44" viewBox="0 0 92.251 11"><defs><style>.a{fill:#b14343;}</style></defs><rect id ="healthbarval" class="a" width="90" height="11" rx="5.5"/></svg>
+    <img id="s2" src="./res/game/s2.svg">
+    <img id="S" src="./res/game/S.svg">
+    <img id="g2" src="./res/game/g2.svg">
+    <img id="G" src="./res/game/G.svg">
+    <img id="d2" src="./res/game/d2.svg">
+    <img id="D" src="./res/game/D.svg">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/phaser@3.11.0/dist/phaser.js'></script>
+    <script src="./js/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js"></script>
+    <script src='./js/dd.js'></script>
+  </body>
+  <style  type="text/css">
+    #enemyHealth{
+      position:absolute;
+      top:5em;
+      left:1.5em;
+      width:56em;
+    }
+    #enemyHealthbar{
+      position:absolute;
+      top:7.5em;
+      left:11.5em;
+    }
+    #style{
+      position:absolute;
+      top:111em;
+      left:14em;
+      width:30em;
+    }
+    #healthbar{
+      position:absolute;
+      top:114.2em;
+      left:26em;
+      width:17em;
+    }
+
+    #S{
+      position:absolute;
+      top:109em;
+      left:18em;
+      width:7.5em;
+    }
+
+    #G{
+      position:absolute;
+      top:114em;
+      left:15.8em;
+      width:7.5em;
+    }
+    #D{
+      position:absolute;
+      top:109em;
+      left:13em;
+      width:7.5em;
+    }
+    #s2{
+      position:absolute;
+      top:112em;
+      left:21em;
+      width:2.5em;
+    }
+    #g2{
+      position:absolute;
+      top:117.5em;
+      left:18em;
+      width:2.5em;
+    }
+    #d2{
+      position:absolute;
+      top:112.5em;
+      left:15.5em;
+      width:2.5em;
+    }
+    .hide{
+      transform:scale(0);
+      -webkit-transform:scale(0);
+      transition:all 0.5s ease-in-out;
+      -webkit-transition:all 0.5s ease-in-out;
+    }
+    .big{
+      transform:scale(2.7);
+      -webkit-transform:scale(2.7);
+      transition:all 0.5s ease-in-out;
+      -webkit-transition:all 0.5s ease-in-out;
+    }
+  </style>
+</html>

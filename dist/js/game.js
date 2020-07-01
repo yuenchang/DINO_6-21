@@ -63,6 +63,7 @@ $(document).ready(function () {
 function preload() {
   // Step 1.1 code goes here
   this.load.setBaseURL('https://'+window.location.host)
+  
   this.load.image('sky', 'res/game/foreground.png')
   this.load.image('floor', 'res/game/ground4.svg')
   this.load.image('ground2', 'res/game/ground2.svg')
@@ -70,8 +71,8 @@ function preload() {
   this.load.image('ground1', 'res/game/ground1.svg')
   this.load.image('ground', 'res/game/platform.png')
   this.load.image('wall', 'res/game/wall.svg')
-  this.load.image('star', 'res/game/star.png')
-  this.load.image('bomb', 'res/game/bomb.png')
+  this.load.svg('star','res/game/star.svg')
+  this.load.svg('bomb','res/game/bomb.svg')
   this.load.spritesheet('dude',
     'res/game/dino.png',
     { frameWidth: 372.36, frameHeight: 307 }
@@ -133,7 +134,7 @@ function create() {
   //platforms.create(750, 220, 'ground').setScale(1, .5).refreshBody()
   //platforms.create( width/2, height , 'ground').setScale(1, .5).refreshBody() 看不懂這啥
   // Step 3 code goes here
-  player = this.physics.add.sprite(100, 450, 'dude').setScale(0.5)
+  player = this.physics.add.sprite(100, 450, 'dude').setScale(0.25)
   player.alive = 1;
   player.setBounce(.2)
   player.setCollideWorldBounds(true)
@@ -175,7 +176,7 @@ function create() {
 }
 
 function addOtherPlayers(self, playerInfo) {
-    const otherPlayer = self.physics.add.sprite(playerInfo.x, playerInfo.y, 'dude').setScale(.5);
+    const otherPlayer = self.physics.add.sprite(playerInfo.x, playerInfo.y, 'dude').setScale(.25);
     otherPlayer.playerId = playerInfo.playerId;
     otherPlayer.alive = 1;
     self.physics.add.overlap(otherPlayers, stars, collectStar, null, self)

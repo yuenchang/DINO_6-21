@@ -51,11 +51,6 @@ body {
   z-index: -10;
 }
 
-#cloud{
-  position: absolute;
-  top: 5vh;
-  width: 100vw;
-}
 
 .left_selection{
     position: absolute;    
@@ -1284,10 +1279,22 @@ information_box {
     top: 30vh;
     left: 80vw;
     z-index: -3;
+    animation-name: example;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-delay: 1s;
+}
+
+@keyframes example{
+    20% {transform:rotate(20deg);}
+    40% {transform:rotate(-20deg);}
+    60% {transform:rotate(20deg);}
+    
 }
 
 .mission_info{
     display: none;
+    z-index: 10;
 }
 
 #mission_info_text{
@@ -1305,4 +1312,13 @@ information_box {
     width: 19vw;
     top: 93vh;
     left: 22vw;
+}
+
+
+#umbrella{
+    display: none;
+    position: absolute;
+    top: 16vh;
+    width: 60vw;
+    left: 21vw;
 }

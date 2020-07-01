@@ -471,8 +471,9 @@ backpack {
   width: 63vw;
   top: 19vh;
   left: 41vw;
-  z-index: 0;
-  display: none; }
+  z-index: -9;
+  display: none; 
+}
 
 #ness_monster {
   width: 24vw;

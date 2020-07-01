@@ -823,13 +823,27 @@ $('#backpack_01').click(function(){
     }
     else if(parseInt(tmp[tmp.length-5],10) == 7) // 雲
     {
-        console.log(7777777777777777)
         socket.emit('change_bg', {ID: getCookie('ID'), Item: "tree"});
+        var display =$('#tree').css('display');
+        if(display == 'none'){
+            $('#tree').fadeIn();
+        }
+        else{
+            $('#tree').fadeOut();
+        }
+        
     }
 
     else if(parseInt(tmp[tmp.length-5],10) == 5) // 雲
     {
         socket.emit('change_bg', {ID: getCookie('ID'), Item: "umbrella"});
+        var display =$('#umbrella').css('display');
+        if(display == 'none'){
+            $('#umbrella').fadeIn();
+        }
+        else{
+            $('#umbrella').fadeOut();
+        }
     }
 });
 
@@ -843,11 +857,25 @@ $('#backpack_02').click(function(){
     else if(parseInt(tmp[tmp.length-5],10) == 7) // 雲
     {
         socket.emit('change_bg', {ID: getCookie('ID'), Item: "tree"});
+        var display =$('#tree').css('display');
+        if(display == 'none'){
+            $('#tree').fadeIn();
+        }
+        else{
+            $('#tree').fadeOut();
+        }
     }
 
     else if(parseInt(tmp[tmp.length-5],10) == 5) // 雲
     {
         socket.emit('change_bg', {ID: getCookie('ID'), Item: "umbrella"});
+        var display =$('#umbrella').css('display');
+        if(display == 'none'){
+            $('#umbrella').fadeIn();
+        }
+        else{
+            $('#umbrella').fadeOut();
+        }
     }
 });
 
@@ -861,11 +889,25 @@ $('#backpack_03').click(function(){
     else if(parseInt(tmp[tmp.length-5],10) == 7) // 雲
     {
         socket.emit('change_bg', {ID: getCookie('ID'), Item: "tree"});
+        var display =$('#tree').css('display');
+        if(display == 'none'){
+            $('#tree').fadeIn();
+        }
+        else{
+            $('#tree').fadeOut();
+        }
     }
 
     else if(parseInt(tmp[tmp.length-5],10) == 5) // 雲
     {
         socket.emit('change_bg', {ID: getCookie('ID'), Item: "umbrella"});
+        var display =$('#umbrella').css('display');
+        if(display == 'none'){
+            $('#umbrella').fadeIn();
+        }
+        else{
+            $('#umbrella').fadeOut();
+        }
     }
 });
 
@@ -879,11 +921,25 @@ $('#backpack_04').click(function(){
     else if(parseInt(tmp[tmp.length-5],10) == 7) // 雲
     {
         socket.emit('change_bg', {ID: getCookie('ID'), Item: "tree"});
+        var display =$('#tree').css('display');
+        if(display == 'none'){
+            $('#tree').fadeIn();
+        }
+        else{
+            $('#tree').fadeOut();
+        }
     }
 
     else if(parseInt(tmp[tmp.length-5],10) == 5) // 雲
     {
         socket.emit('change_bg', {ID: getCookie('ID'), Item: "umbrella"});
+        var display =$('#umbrella').css('display');
+        if(display == 'none'){
+            $('#umbrella').fadeIn();
+        }
+        else{
+            $('#umbrella').fadeOut();
+        }
     }
 });
 
@@ -897,11 +953,25 @@ $('#backpack_05').click(function(){
     else if(parseInt(tmp[tmp.length-5],10) == 7) // 雲
     {
         socket.emit('change_bg', {ID: getCookie('ID'), Item: "tree"});
+        var display =$('#tree').css('display');
+        if(display == 'none'){
+            $('#tree').fadeIn();
+        }
+        else{
+            $('#tree').fadeOut();
+        }
     }
 
     else if(parseInt(tmp[tmp.length-5],10) == 5) // 雲
     {
         socket.emit('change_bg', {ID: getCookie('ID'), Item: "umbrella"});
+        var display =$('#umbrella').css('display');
+        if(display == 'none'){
+            $('#umbrella').fadeIn();
+        }
+        else{
+            $('#umbrella').fadeOut();
+        }
     }
 });
 
@@ -915,11 +985,25 @@ $('#backpack_06').click(function(){
     else if(parseInt(tmp[tmp.length-5],10) == 7) // 雲
     {
         socket.emit('change_bg', {ID: getCookie('ID'), Item: "tree"});
+        var display =$('#tree').css('display');
+        if(display == 'none'){
+            $('#tree').fadeIn();
+        }
+        else{
+            $('#tree').fadeOut();
+        }
     }
 
     else if(parseInt(tmp[tmp.length-5],10) == 5) // 雲
     {
         socket.emit('change_bg', {ID: getCookie('ID'), Item: "umbrella"});
+        var display =$('#umbrella').css('display');
+        if(display == 'none'){
+            $('#umbrella').fadeIn();
+        }
+        else{
+            $('#umbrella').fadeOut();
+        }
     }
 });
 
@@ -936,11 +1020,25 @@ $('#backpack_07').click(function(){
     else if(parseInt(tmp[tmp.length-5],10) == 7) // 雲
     {        
         socket.emit('change_bg', {ID: getCookie('ID'), Item: "tree"});
+        var display =$('#tree').css('display');
+        if(display == 'none'){
+            $('#tree').fadeIn();
+        }
+        else{
+            $('#tree').fadeOut();
+        }
     }
 
     else if(parseInt(tmp[tmp.length-5],10) == 5) // 雲
     {
         socket.emit('change_bg', {ID: getCookie('ID'), Item: "umbrella"});
+        var display =$('#umbrella').css('display');
+        if(display == 'none'){
+            $('#umbrella').fadeIn();
+        }
+        else{
+            $('#umbrella').fadeOut();
+        }
     }
 });
 
@@ -954,11 +1052,25 @@ $('#backpack_08').click(function(){
     else if(parseInt(tmp[tmp.length-5],10) == 7) // 雲
     {
         socket.emit('change_bg', {ID: getCookie('ID'), Item: "tree"});
+        var display = $('#tree').css('display');
+        if(display == 'none'){
+            $('#tree').fadeIn();
+        }
+        else{
+            $('#tree').fadeOut();
+        }
     }
 
     else if(parseInt(tmp[tmp.length-5],10) == 5) // 雲
     {
         socket.emit('change_bg', {ID: getCookie('ID'), Item: "umbrella"});
+        var display =$('#umbrella').css('display');
+        if(display == 'none'){
+            $('#umbrella').fadeIn();
+        }
+        else{
+            $('#umbrella').fadeOut();
+        }
     }
 });
 
