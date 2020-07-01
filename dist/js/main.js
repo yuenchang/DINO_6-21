@@ -55,9 +55,25 @@ $(document).ready(function () {
     document.getElementById("ass_dinasour").setAttribute("src", "assests/屁頭龍下雨天怎麼辦我好想你.png");
   })
 
+  /* 進化對話匡消失 */
   $('#upgrage_info_ok').click( function(){
     $('.upgrage_info').fadeOut(400);
   })
+
+  /* 進入緊急任務確認頁面 */
+  $('#mark').click( function(){
+    $('.mission_info').fadeIn(400);
+  });
+
+  $('#mission_info_latter').click(function(){
+    $('.mission_info').fadeOut(400);
+  });
+
+  $('#mission_info_ok').click(function(){
+    $('.mission_info').fadeOut(400);
+    $('#mark').fadeOut(400);
+    /////////////////////////////////
+  });
 
 
 });
@@ -322,6 +338,12 @@ socket.on('give_you_score', function(data){
     {
       $('.upgrage_info').css('display','block');
       can_upgrade = true;
+    }
+
+    /* 緊急任務 */
+    if(data.Score == 50 && data.Dino > 0 && data.Dino < 4)
+    {
+      $('#mark').css('display','block');
     }
   }
 })

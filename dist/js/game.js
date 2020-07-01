@@ -18,6 +18,25 @@ window.onload = function() {
   permission();
 };
 
+$(document).ready(function () {
+  if ( typeof( DeviceMotionEvent ) !== "undefined" && typeof( DeviceMotionEvent.requestPermission ) === "function" ) {
+    // (optional) Do something before API request prompt.
+    DeviceMotionEvent.requestPermission()
+      .then( response => {
+        // (optional) Do something after API prompt dismissed.
+        if ( response == "granted" ) {
+          window.addEventListener( "devicemotion", (e) => {
+            // do something for 'e' here.
+          })
+        }
+      })
+      .catch( console.error )
+  } else {
+    console.log( "DeviceMotionEvent is not defined" );
+  }
+});
+
+
 var amIalive = 1;
 const game = new Phaser.Game({
   type: Phaser.AUTO,

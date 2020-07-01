@@ -71,6 +71,11 @@ $('#button_01').click(function(){
 
 // game
 $('#jumpJumpGame').click(function(){
+    $('#findTheDifference').fadeOut();
+    $('#jumpJumpGame').fadeOut();
+    $('information_box').fadeIn();
+    $('#subtitle_text_03').fadeIn();//////////////////
+    $('#button_02').fadeOut();
     location.href='game.html'
 });
 

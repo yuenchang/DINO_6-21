@@ -462,10 +462,10 @@ socket.on('give_me_letter', function(data){
 
     /* 確認有沒有信 */
     socket.on('is_there_letter', function(data){
-      database.ref('account/'+data.ID).on('value',db=>{
-        for(var i=0; i< db.val().letter.length; i++)
+      database.ref('account/'+data.ID+'/letter').on('value',db=>{
+        for(var i=0; i< db.val().length; i++)
         {
-          if(db.val().letter[i].read == false)
+          if(db.val()[i].read == false)
           {
             socket.emit('there_is_letter', {ID:data.ID});//傳
           }
@@ -509,10 +509,12 @@ socket.on('give_me_letter', function(data){
     socket.on('give_me_score', function(data){
       database.ref('account/'+data.ID+'/score').on('value',db=>{
         var s = db.val();
-        socket.emit('give_you_score', {ID:data.ID, Score:s});//傳
+        database.ref('account/'+data.ID+'/dino').once('value',v=>{
+          var dino = v.val();
+          socket.emit('give_you_score', {ID:data.ID, Score:s, Dino:dino});//傳
+        });
       });
     })
-
     socket.on('give_me_stage', function(data){
       database.ref('account/'+data.ID+'/stage').once('value',db=>{
         var s = db.val();
