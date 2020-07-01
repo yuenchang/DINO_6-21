@@ -69,6 +69,11 @@ $('#button_01').click(function(){
   
 });
 
+// game
+$('#jumpJumpGame').click(function(){
+    location.href='game.html'
+});
+
 /* 遊戲關卡1-找出不同點!!! */ 
 $('#findTheDifference').click(function(){    
     $('#findTheDifference').fadeOut();

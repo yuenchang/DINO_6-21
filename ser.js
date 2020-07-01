@@ -1,10 +1,11 @@
 const express = require('express')
 const app = express()
-const port = 65530
+const port = 65531
 const https = require('https')
 const fs = require('fs');
 
 var readylist = []
+var players = {};
 
 /**** ssl資料 ****/
 var server = https.createServer({
@@ -188,6 +189,46 @@ Array.prototype.remove = function() {
 
 /**** 所有socket溝通都包在io.on之下 ****/
 io.on('connection', function(socket) {
+
+  ////////////////game.js//////////
+  players[socket.id] = {
+    x: 100,
+    y: 450,
+    playerId: socket.id,
+  };
+
+socket.emit('currentPlayers', players);
+
+socket.broadcast.emit('newPlayer', players[socket.id]);
+socket.on('disconnect', function () {
+console.log('user disconnected: ', socket.id);
+delete players[socket.id];
+// emit a message to all players to remove this player
+io.emit('disconnect', socket.id);
+});
+
+socket.on('playerMovement', function (movementData) {
+players[socket.id].x = movementData.x;
+players[socket.id].y = movementData.y;
+players[socket.id].face = movementData.face;
+// emit a message to all players about the player that moved
+socket.broadcast.emit('playerMoved', players[socket.id]);
+});
+
+socket.on('collectStar',function(data){
+socket.broadcast.emit('removeStar', data);
+});
+
+socket.on('giveMeBomb',function(){
+console.log('123');
+bomb={}
+bomb.x = Math.floor(Math.random() * 800);
+bomb.v = Math.floor(Math.random() * 400)-200;
+io.emit('giveYouBomb',bomb);
+});
+
+
+////////////////game.js//////////
   
   /*似乎是廢扣
   socket.on('sendMessage', function(data) {
