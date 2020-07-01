@@ -1,0 +1,28 @@
+.background {
+    width: 99vw;
+    position: absolute;
+    overflow-x:hidden;
+    overflow-y:hidden;
+    display: table;
+
+}
+
+.sure {
+    position: absolute;
+    display: block;
+    z-index: 1;
+    top: 55.5vh;
+    left:40vw;
+    width: 20vw;
+}
+
+#score_output {
+    width: 50vw;
+    position: absolute;
+    font-size: 123px;
+    top:39.5vh;
+    left:36vw;
+    z-index: 2;
+    font-family: "Gen-M";
+    color: #FFDF96;
+}
