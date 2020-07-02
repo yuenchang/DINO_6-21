@@ -14,6 +14,12 @@
 }
 
 @font-face{
+    font-family: GenJyuuGothic-P-Heavy;
+    src: url("./../res/fonts/genjyuugothic/GenJyuuGothic-P-Medium.ttf");
+}
+
+
+@font-face{
     font-family: GenJyuuGothicN;
     src: url("./../res/fonts/GenJyuuGothic-P-Normal.ttf");
 }

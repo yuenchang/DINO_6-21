@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 65531
+const port = 8877
 const https = require('https')
 const fs = require('fs');
 
@@ -200,7 +200,7 @@ io.on('connection', function(socket) {
 
   ////////////////game.js//////////
   players[socket.id] = {
-    x: 100,
+    x: -100,
     y: 450,
     playerId: socket.id,
   };

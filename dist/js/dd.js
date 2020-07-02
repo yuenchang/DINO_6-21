@@ -401,12 +401,14 @@ function create() {
 }
 
 function addOtherPlayers(self, playerInfo) {
+  /*
   const otherPlayer = self.physics.add.sprite(playerInfo.x, playerInfo.y, 'dude').setScale(.5);
   otherPlayer.playerId = playerInfo.playerId;
   otherPlayer.alive = 1;
   self.physics.add.overlap(otherPlayers, stars, collectStar, null, self)
   //self.physics.add.overlap(otherPlayer, self.stars, collectStar, null, this);
   otherPlayers.add(otherPlayer);
+  */
 }
 
 function update() {
@@ -494,7 +496,7 @@ function update() {
     var x = player.x;
     var y = player.y;
     if (player.oldPosition && (x !== player.oldPosition.x || y !== player.oldPosition.y )) {
-      this.socket.emit('playerMovement', { x: x, y: y,face:face});
+      //this.socket.emit('playerMovement', { x: x, y: y,face:face});
     }
     // save old position data
     player.oldPosition = {
