@@ -134,15 +134,15 @@ money_group{
     width: 63vw;
     left: 23vw;
     top: 40vh;
-    z-index: 3;    
+    z-index: 1;    
 }
 
 #ass_dinasour_2{
     width: 63vw;
     left: 23vw;
-    top: 40vh; 
+    top: 18vh; 
     display: none;   
-    z-index: 3;
+    z-index: -5;
 }
 
 #dinasour{
@@ -1070,6 +1070,7 @@ information_box {
 /**** 進化 ****/
 .upgrage_info{
     display: none;
+    z-index: 10;
 }
 
 #upgrage_info_text{

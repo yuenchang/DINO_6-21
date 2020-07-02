@@ -250,11 +250,11 @@ function go_to_letter(){
   $('#cover').css('display','none'); //關閉遮罩層
 
   //屁頭上升
-  $('#ass_dinasour').fadeTo('slow','0');
-  $('#ass_dinasour').animate({top:"-=23vh" },800);
+  $('#ass_dinasour').fadeOut('fast');
+  //$('#ass_dinasour').animate({top:"-=23vh" },800);
   $('#ass_dinasour_2').fadeIn();
-  $('#ass_dinasour_2').css('z-index','0');    
-  $('#ass_dinasour2').animate({top:"-=23vh" },800);
+  //$('#ass_dinasour_2').css('z-index','0');    
+  //$('#ass_dinasour_2').animate({top:"-=23vh" },800);
 }
 
 function letter_info(){
@@ -282,9 +282,9 @@ function letter_back(){
   $('#left_leaf').animate({left:"+=200vw" },1500);
   $('#mission_logo').animate({left:"+=200vw" },1500);
   $('#mission_text').animate({left:"+=200vw" },1500);
-  $('#ass_dinasour').fadeTo('slow','1');
-  $('#ass_dinasour').animate({top:"+=23vh" },800);
-  $('#ass_dinasour_2').fadeOut();    
+  //$('#ass_dinasour').fadeTo('slow','1');
+  $('#ass_dinasour').fadeIn('fast');
+  $('#ass_dinasour_2').fadeOut('fast');    
 }
 
 function send_letter(){
@@ -293,6 +293,8 @@ function send_letter(){
   var id = getCookie('ID');
   socket.emit('send_letter', {ID: id, Letter: letter});
 
+  $('#ass_dinasour_2').fadeOut('fast');
+  $('#ass_dinasour').fadeIn('fast');
   // 動畫
   //$('#letter_bg').animate({height:"-=20vh"}, 1200);
   $('.write_letter').css('display','none');
@@ -448,9 +450,11 @@ socket.on('update_my_reward', function(data){
 
 //購買商品　扣除金額
 socket.on('purchase_item', function(data){
-  if(data.ID == getCookie('ID')){    
+  if(data.ID == getCookie('ID')){   
+    console.log("money:" + money); 
     if((money - data.Money) >= 0){
       console.log("扣除金額: " +data.Money);
+      
       money = money - data.Money;
     }      
     else{      

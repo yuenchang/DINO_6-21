@@ -2,7 +2,7 @@ var wip = "wss://" + window.location.host;
 var socket = io(wip);
 var childIsReady1 = 0,parentIsReady1 = 0;
 var page = 0;
-var score_p,money_p,gameLevel_p;
+var p_score,money_p,gameLevel_p, score;
 $(document).ready(function() {
   
 
@@ -277,6 +277,7 @@ socket.on('give_you_money', function(data){
 
 socket.on('give_you_score', function(data){
   if(data.ID == getCookie('ID')){
+    p_score = data.Score; 
     var em = (data.Score / 100 )*4 + "em";
     $('#EXP').css({"width":em});
   }
@@ -300,7 +301,7 @@ socket.on('give_you_stage', function(data){
     //update gold
     money_p += data.Money/2;
     document.getElementById('money').innerHTML = money_p;
-    socket.emit('update_money_score', {ID: data.ID,Money: money,Score: score}); 
+    socket.emit('update_money_score', {ID: data.ID,Money: money,Score: p_score}); 
   }
 })
 
@@ -315,7 +316,7 @@ socket.on('purchase_item', function(data){
       console.log("沒錢了啦! >.<");
     }
     document.getElementById('money').innerHTML = money_p;
-    socket.emit('update_money_score', {ID: data.ID,Money: money,Score: score});
+    socket.emit('update_money_score', {ID: data.ID,Money: money,Score: p_score});
   }
 })
 

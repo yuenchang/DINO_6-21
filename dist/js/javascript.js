@@ -815,11 +815,11 @@ $('#backpack_closeButton').click(function(){
 $('#backpack_01').click(function(){
     var tmp = document.getElementById("backpack_01").src;
     /* 1到4是帽子，5是雲，7是樹 */
-    console.log(8888888888888)
+    console.log(8888888888888);
     if(parseInt(tmp[tmp.length-5],10) <= 4)
     {
-        socket.emit('give_me_dino_hat', {ID: getCookie('ID')});
         hat_id = parseInt(tmp[tmp.length-5],10);
+        socket.emit('give_me_dino_hat', {ID: getCookie('ID')});
     }
     else if(parseInt(tmp[tmp.length-5],10) == 7) // 雲
     {
@@ -851,8 +851,9 @@ $('#backpack_02').click(function(){
     var tmp = document.getElementById("backpack_02").src;
     if(parseInt(tmp[tmp.length-5],10) <= 4)
     {
-        socket.emit('give_me_dino_hat', {ID: getCookie('ID')});
         hat_id = parseInt(tmp[tmp.length-5],10);
+        socket.emit('give_me_dino_hat', {ID: getCookie('ID')});
+        
     }
     else if(parseInt(tmp[tmp.length-5],10) == 7) // 雲
     {
@@ -1232,6 +1233,7 @@ $('#purchase_button').click(function(){
 
 socket.on('whats_in_your_bag', function(data){
     if(data.ID == getCookie('ID')){   
+        console.log(data.item)
       for(var i=0; i<data.Item.length; i++)
       {
         var j = i+1;
@@ -1264,10 +1266,11 @@ socket.on('give_you_dino_hat', function(data){
       {
         dino = 3;
       }
+      console.log("dino id:" + dino);
       dino = dino + (hat_id*4);
-      console.log('in');
-      console.log(dino);
-      console.log(hat_id);
+
+      console.log("new dino id:" + dino);
+      console.log("hat id:" + hat_id);
       $('#ass_dinasour').attr("src", "./assests/dino" + dino.toString() + ".svg");
       $('#ass_dinasour_2').attr("src", "./assests/dino" + dino.toString() + ".svg");
       //$('#dinosaur_model').attr("src", "./assests/dino" + dino.toString() + ".svg");

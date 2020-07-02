@@ -260,7 +260,7 @@ io.emit('giveYouBomb',bomb);
               score: 0,
               stage: 0,
               dino: 0,
-              item: db.val().item,
+              item: "",
               tree:0,
               umbrella:0
             }
@@ -686,7 +686,6 @@ socket.on('give_me_letter', function(data){
       //io.sockets.emit('give_you_dino',{ID:data.ID,Dino:0});
       database.ref('account/'+data.ID+'/dino').once('value',db=>{
         var dino = db.val();
-        console.log('gmd');
         io.sockets.emit('give_you_dino',{ID:data.ID,Dino:dino});
         //socket.emit('give_you_dino', {ID:data.ID, Dino:dino});//傳
       });
@@ -710,21 +709,48 @@ socket.on('give_me_letter', function(data){
     })
 
     socket.on('whats_in_my_bag', function(data){
+      var i=1
+
+      var item = [];
+      
+  database.ref('account/'+data.ID).once('value',db=>{
+    console.log(db.val().item)
+    for(var i in db.val().item)
+    {
+      console.log(i)
+      item.push(i)
+    }
+
+
+    io.sockets.emit('whats_in_your_bag', {ID:data.ID, Item:item});//傳
+    // snapshot.forEach(function(item) {
+    //   console.log(item)
+    //   //key[i] = item.key
+    //   //value[i] = item.val().time
+    //   //i++
+    // })
+  })
+
+/*
       database.ref('account/'+data.ID+'/item').once('value',db=>{
-        //console.log(db.val());
+        console.log(db.val());
         var item = "";
-        for(var i=1; i< db.val().length; i++)
+        for(var i=0; i< db.val().length; i++)
         {
-          //console.log(db.val()[i]);
+          console.log(db.val());
           if(db.val()[i] == 1)
           {
-            item = item + i.toString();
+            console.log("in for");
+            var j = i+1;
+            item = item + j.toString();
           }
         }
+        
         console.log(item)
+        */
         //var s = db.val();
-        io.sockets.emit('whats_in_your_bag', {ID:data.ID, Item:item});//傳
-      });
+        //io.sockets.emit('whats_in_your_bag', {ID:data.ID, Item:item});//傳
+      //});
     })
 
 
@@ -741,6 +767,13 @@ socket.on('give_me_letter', function(data){
     })*/
 
     socket.on('dino_change_hat', function(data){
+      console.log("new dino id 1: " + data.Dino);
+
+      var reff = database.ref('account/'+data.ID+'/dino/');
+       reff.set(data.Dino);
+
+
+      /*
       var reff = database.ref('account/'+data.ID);
       database.ref('account/'+data.ID).once('value',db=>{
         
@@ -762,8 +795,12 @@ socket.on('give_me_letter', function(data){
           umbrella: db.val().umbrella
         }
         reff.set(input);
+        console.log("new dino id 2: " + data.Dino);
       });
+      */
     })
+
+    
 
     socket.on('change_bg', function(data){
       var reff = database.ref('account/'+data.ID);
